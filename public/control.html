@@ -1,132 +1,138 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!--本页面不缓存-->
-    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
-    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
-    <META HTTP-EQUIV="expires" CONTENT="0">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+    <meta http-equiv="expires" content="0" />
     <title>综合展示中心</title>
-    <link rel="stylesheet" type="text/css" href="css/linkstyles.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-    <link rel="stylesheet" href="hescgis/openlayers/css/ol.css">
-    <link rel="stylesheet" href="hescgis/styles/hescgis.css">
-</head>
-<body>
-<div id="screen">
-    <div class="content">
+    <link rel="stylesheet" type="text/css" href="css/linkstyles.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+    <link rel="stylesheet" href="hescgis/openlayers/css/ol.css" />
+    <link rel="stylesheet" href="hescgis/styles/hescgis.css" />
+  </head>
+  <body>
+    <div id="screen">
+      <div class="content">
         <!--头部-->
         <div class="header" flex="dir:left">
+          <!--中间的icon-->
+          <div class="header-left" flex="main:center cross:center">
+            城市管理运行指挥中心
+          </div>
+          <div class="header-nav" flex="main:center cross:center">
+            <a href="control.html">
+              <div class="nav-icon nav active" flex="dir:top main:justify cross:center">
+                <img src="image/xqgk-a.png" alt="" />
+                <div class="icon-title" flex="main:center cross:center">辖区概况</div>
+              </div>
+            </a>
+            <a href="files.html">
+              <div class="nav-icon nav" flex="dir:top main:justify cross:center">
+                <img src="image/zhcg.png" alt="" />
+                <div class="icon-title" flex="main:center cross:center">智慧城管</div>
+              </div>
+            </a>
+            <a>
+              <div class="nav-icon nav" flex="dir:top main:justify cross:center">
+                <img src="image/zhzf.png" alt="" />
+                <div class="icon-title" flex="main:center cross:center">综合执法</div>
+              </div>
+            </a>
+            <a>
+              <div class="nav-icon nav" flex="dir:top main:justify cross:center">
+                <img src="image/cstz.png" alt="" />
+                <div class="icon-title" flex="main:center cross:center">城市体征</div>
+              </div>
+            </a>
+            <a>
+              <div class="nav-icon nav" flex="dir:top main:justify cross:center">
+                <img src="image/dlhx.png" alt="" />
+                <div class="icon-title" flex="main:center cross:center">道路画像</div>
+              </div>
+            </a>
+            <a>
+              <div class="nav-icon nav" flex="dir:top main:justify cross:center">
+                <img src="image/znfx.png" alt="" />
+                <div class="icon-title" flex="main:center cross:center">智能分析</div>
+              </div>
+            </a>
             <!--中间的icon-->
-            <div class="header-left" flex="main:center cross:center">
-                城市管理运行指挥中心
-            </div>
-            <div class="header-nav" flex="main:center cross:center">
-                <a href="control.html">
-                    <div class="nav-icon nav active" flex="dir:top main:justify cross:center">
-                        <div class="icon1" flex="main:center cross:center"></div>
-                        <div class="icon-title" flex="main:center cross:center">
-                            辖区概况
-                        </div>
-                    </div>
-                </a>
-                <a>
-                    <div class="nav-icon nav" flex="dir:top main:justify cross:center">
-                        <div class="icon3" flex="main:center cross:center">
-                        </div>
-                        <div class="icon-title" flex="main:center cross:center">
-                            市容市貌
-                        </div>
-                    </div>
-                </a>
-                <a>
-                    <div class="nav-icon nav" flex="dir:top main:justify cross:center">
-                        <div class="icon4" flex="main:center cross:center">
-                        </div>
-                        <div class="icon-title" flex="main:center cross:center">
-                            违章建筑
-                        </div>
-                    </div>
-                </a>
-                <a href="files.html">
-                    <div class="nav-icon nav" flex="dir:top main:justify cross:center">
-                        <div class="icon5" flex="main:center cross:center"></div>
-                        <div class="icon-title" flex="main:center cross:center">
-                            案卷处理
-                        </div>
-                    </div>
-                </a>
-                <!--中间的icon-->
 
-                <!--左右的滚动箭头-->
-                <div class="nav-left-zuo">
-                    <div class="zuo" flex="dir:left">
-                    </div>
-                </div>
-                <div class="nav-left-you">
-                </div>
-                <!--左右的滚动箭头-->
-                <!--中间的横线-->
-                <div class=nav-border-mid>
-                    <img src="image/nav-border.png" alt="">
-                    <!--<img class="hover" src="image/nav.png" alt="">-->
-                </div>
-                <!--中间的横线-->
+            <!--左右的滚动箭头-->
+            <div class="nav-left-zuo">
+              <div class="zuo" flex="dir:left"></div>
             </div>
-            <div class="header-right" flex=" main:center cross:center">
-                <div class="time>" flex="dir:left main:center cross:center">
-                    <div class="years" flex="dir:left">
-                        <div class="year">2011</div>&nbsp;-&nbsp;
-                        <div class="month">10</div>&nbsp;-&nbsp;
-                        <div class="day">15</div>
-                    </div>
-                    <div class="hour" flex="dir:left">
-                        <div class="hours">12</div>&nbsp;:&nbsp;
-                        <div class="minutes">20</div>&nbsp;:&nbsp;
-                        <div class="seconds">30</div>
-                    </div>
-                    <div class="week">周三</div>
-                </div>
+            <div class="nav-left-you"></div>
+            <!--左右的滚动箭头-->
+            <!--中间的横线-->
+            <div class="nav-border-mid">
+              <img src="image/nav-border.png" alt="" />
+              <!--<img class="hover" src="image/nav.png" alt="">-->
             </div>
+            <!--中间的横线-->
+          </div>
+          <div class="header-right" flex=" main:center cross:center">
+            <div class="time>" flex="dir:left main:center cross:center">
+              <div class="years" flex="dir:left">
+                <div class="year">2011</div>
+                &nbsp;-&nbsp;
+                <div class="month">10</div>
+                &nbsp;-&nbsp;
+                <div class="day">15</div>
+              </div>
+              <div class="hour" flex="dir:left">
+                <div class="hours">12</div>
+                &nbsp;:&nbsp;
+                <div class="minutes">20</div>
+                &nbsp;:&nbsp;
+                <div class="seconds">30</div>
+              </div>
+              <div class="week">周三</div>
+            </div>
+          </div>
         </div>
         <!--头部-->
 
         <!--主题内容-->
         <div class="main" flex="dir:left main:center cross:center">
-            <div class="mn-left" flex="dir:top">
-                <!--地图-->
-                <div class="mn-map">
-                    <div class="border-top">
-                        <div class="border-top-s"></div>
+          <div class="mn-left" flex="dir:top">
+            <!--地图-->
+            <div class="mn-map">
+              <div class="border-top">
+                <div class="border-top-s"></div>
+              </div>
+              <div class="map">
+                <div class="map-header">
+                  <div class="p-header" flex="cross:center">
+                    金华经济技术开发区
+                    <div class="border-b">
+                      <div class="b-line"></div>
                     </div>
-                    <div class="map">
-                        <div class="map-header">
-                            <div class="p-header" flex="cross:center">
-                                金华经济技术开发区
-                                <div class="border-b">
-                                    <div class="b-line"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chart-panel">
-                            <div id="liquidFill-chart"></div>
-                            <div class="text-panel">
-                                <span>考核球</span>
-                            </div>
-                        </div>
-                        <div class="map-main" id="mapDiv">
-                            <!-- <div class="map-img1"> -->
-                            <!--地图底色-->
-                            <!-- <img src="image/map1.png" alt="" class="map1">
+                  </div>
+                </div>
+                <div class="chart-panel">
+                  <div id="liquidFill-chart"></div>
+                  <div class="text-panel">
+                    <span>考核球</span>
+                  </div>
+                </div>
+                <div class="map-main" id="mapDiv">
+                  <!-- <div class="map-img1"> -->
+                  <!--地图底色-->
+                  <!-- <img src="image/map1.png" alt="" class="map1">
                             <img src="image/map2.png" alt="" class="map2">
                             <img src="image/map4.png" alt="" class="map3">
                             <img src="image/map5.png" alt="" class="map4"> -->
-                            <!--地图分布-->
-                            <!-- <div class="sumengxiang mapss" flex="main:center cross:center">苏孟乡</div>
+                  <!--地图分布-->
+                  <!-- <div class="sumengxiang mapss" flex="main:center cross:center">苏孟乡</div>
                             <div class="tangxizhen mapss" flex="main:center cross:center">汤溪镇</div>
                             <div class="yangmaozhen mapss" flex="main:center cross:center">洋埠镇</div>
                             <div class="luomaozhen mapss" flex="main:center cross:center">罗埠镇</div>
@@ -134,498 +140,522 @@
                             <div class="xiguan mapss" flex="main:left cross:center">西关街道</div>
                             <div class="sanjiang mapss" flex="main:right cross:center">三江街道</div>
                             <div class="jiangnan mapss" flex="main:left cross:top">江南街道</div> -->
-                            <!--提示框-->
-                            <div class="tips" id="sumeng">
-                                <div class="tips-header" flex="cross:center">苏孟乡</div>
-                                <div class="tips-main smx">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
-                            </div>
-                            <div class="tips" id="tangxi">
-                                <div class="tips-header" flex="cross:center">汤溪镇</div>
-                                <div class="tips-main txz">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
-                            </div>
-                            <div class="tips" id="yangmaozhen">
-                                <div class="tips-header" flex="cross:center">洋埠镇</div>
-                                <div class="tips-main ybz">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
-                            </div>
-                            <div class="tips" id="luomaozhen">
-                                <div class="tips-header" flex="cross:center">罗埠镇</div>
-                                <div class="tips-main lbz">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
-                            </div>
-                            <div class="tips" id="qiubin">
-                                <div class="tips-header" flex="cross:center">秋滨街道</div>
-                                <div class="tips-main qbjd">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
-                            </div>
-                            <div class="tips" id="xiguan">
-                                <div class="tips-header" flex="cross:center">西关街道</div>
-                                <div class="tips-main xgjd">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
-                            </div>
-                            <div class="tips" id="sanjiang">
-                                <div class="tips-header" flex="cross:center">三江街道</div>
-                                <div class="tips-main sjjd">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
-                            </div>
-                            <div class="tips" id="jiangnan">
-                                <div class="tips-header" flex="cross:center">江南街道</div>
-                                <div class="tips-main jnjd">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
-                            </div>
-                        </div>
-                        <!-- </div> -->
-                    </div>
+                  <!--提示框-->
+                  <div class="tips" id="sumeng">
+                    <div class="tips-header" flex="cross:center">苏孟乡</div>
+                    <div class="tips-main smx">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
+                  </div>
+                  <div class="tips" id="tangxi">
+                    <div class="tips-header" flex="cross:center">汤溪镇</div>
+                    <div class="tips-main txz">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
+                  </div>
+                  <div class="tips" id="yangmaozhen">
+                    <div class="tips-header" flex="cross:center">洋埠镇</div>
+                    <div class="tips-main ybz">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
+                  </div>
+                  <div class="tips" id="luomaozhen">
+                    <div class="tips-header" flex="cross:center">罗埠镇</div>
+                    <div class="tips-main lbz">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
+                  </div>
+                  <div class="tips" id="qiubin">
+                    <div class="tips-header" flex="cross:center">秋滨街道</div>
+                    <div class="tips-main qbjd">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
+                  </div>
+                  <div class="tips" id="xiguan">
+                    <div class="tips-header" flex="cross:center">西关街道</div>
+                    <div class="tips-main xgjd">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
+                  </div>
+                  <div class="tips" id="sanjiang">
+                    <div class="tips-header" flex="cross:center">三江街道</div>
+                    <div class="tips-main sjjd">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
+                  </div>
+                  <div class="tips" id="jiangnan">
+                    <div class="tips-header" flex="cross:center">江南街道</div>
+                    <div class="tips-main jnjd">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div>
+                  </div>
                 </div>
-                <!--地图-->
-                <!--概况展示-->
-                <div class="mn-show">
-                    <div class="border-top">
-                        <div class="border-top-s"></div>
-                    </div>
-                    <div class="s-content">
-                        <div class="s-header" flex="cross:center">
-                            金华经济技术开发区辖区概况展示
-                            <div class="border-b">
-                                <div class="b-line"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="s-body">
-                        <div class="body-con">
-                            <div class="btl"></div>
-                            <div class="btr"></div>
-                            <div class="bbl"></div>
-                            <div class="bbr"></div>
-                            <div class="middle">
-                                <img src="image/middle.png" alt="">
-                            </div>
-                            <div class="show-items" flex="dir:left main:left ">
-                                <div class="s-item" flex="dir:left">
-                                    <div class="item-left" flex="main:center cross:center">
-                                        <img src="image/xiangzhenjiedao.png" alt="">
-                                    </div>
-                                    <div class="item-right">
-                                        <div class="item-r-t">
-                                            乡镇街道
-                                        </div>
-                                        <div class="item-r-b xzjd">
-                                            1
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="s-item" flex="dir:left">
-                                    <div class="item-left" flex="main:center cross:center">
-                                        <img src="image/shequshu.png" alt="">
-                                    </div>
-                                    <div class="item-right">
-                                        <div class="item-r-t">
-                                            社区数
-                                        </div>
-                                        <div class="item-r-b sqs">
-                                            1
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="s-item" flex="dir:left">
-                                    <div class="item-left" flex="main:center cross:center">
-                                        <img src="image/wanggeshu.png" alt="">
-                                    </div>
-                                    <div class="item-right">
-                                        <div class="item-r-t">
-                                            网格数
-                                        </div>
-                                        <div class="item-r-b wgs">
-                                            --
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="s-item" flex="dir:left">
-                                    <div class="item-left" flex="main:center cross:center">
-                                        <img src="image/zhifaduiyuan.png" alt="">
-                                    </div>
-                                    <div class="item-right">
-                                        <div class="item-r-t">
-                                            执法队员
-                                        </div>
-                                        <div class="item-r-b zfry">
-                                            1
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="s-item" flex="dir:left">
-                                    <div class="item-left" flex="main:center cross:center">
-                                        <img src="image/shouliyuan.png" alt="">
-                                    </div>
-                                    <div class="item-right">
-                                        <div class="item-r-t">
-                                            受理员
-                                        </div>
-                                        <div class="item-r-b sly">
-                                            1
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="s-item" flex="dir:left">
-                                    <div class="item-left" flex="main:center cross:center">
-                                        <img src="image/jiankongshu.png" alt="">
-                                    </div>
-                                    <div class="item-right">
-                                        <div class="item-r-t">
-                                            监控数
-                                        </div>
-                                        <div class="item-r-b zks">
-                                            1
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="s-item" flex="dir:left">
-                                    <div class="item-left" flex="main:center cross:center">
-                                        <img src="image/zfcl.png" alt="">
-                                    </div>
-                                    <div class="item-right">
-                                        <div class="item-r-t">
-                                            执法车辆
-                                        </div>
-                                        <div class="item-r-b zfcl">
-                                            --
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="s-item" flex="dir:left">
-                                    <div class="item-left" flex="main:center cross:center">
-                                        <img src="image/xgry.png" alt="">
-                                    </div>
-                                    <div class="item-right">
-                                        <div class="item-r-t">
-                                            协管人员
-                                        </div>
-                                        <div class="item-r-b zfcl">
-                                            --
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--概况展示-->
+                <!-- </div> -->
+              </div>
             </div>
-            <div class="mn-right" flex="dir:left">
-                <!--运行总量-->
-                <div class="mn-gross">
-                    <div class="border-top">
-                        <div class="border-top-s"></div>
-                    </div>
-                    <div class="g-content">
-                        <div class="g-header" flex="cross:center main:justify">
-                            <div class="g-title">运行总量</div>
-                            <div class="g-nav">
-                                <ul flex="dir:left main:center cross:center box:mean">
-                                    <li class="active"><a href="javascript:void(0);" id="dataTotal">总计</a></li>
-                                    <li><a href="javascript:void(0);" id="dataDay">本日</a></li>
-                                    <li><a href="javascript:void(0);" id="dataWeek">本周</a></li>
-                                    <li><a href="javascript:void(0);" id="dataMonth">本月</a></li>
-                                </ul>
-                            </div>
-                            <div class="border-b">
-                                <div class="b-line"></div>
-                            </div>
-                        </div>
-                        <div class="g-body">
-                            <div class="nav-state">
-                                <div class="nav-item" flex="dir:left">
-                                    <div class="a-left" flex="ceoss:center ">
-                                        <div class="area-icon">
-                                            <img src="image/zongshouliliang.png" alt="">
-                                        </div>
-                                        <div class="text" flex="cross:center">
-                                            总受理量
-                                        </div>
-                                    </div>
-                                    <div class="a-right" flex="cross:center main:right">
-                                        <div class="item-num" flex="main:right" id="ZSLS">
-                                            0
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="nav-item" flex="dir:left">
-                                    <div class="a-left" flex="ceoss:center ">
-                                        <div class="area-icon">
-                                            <img src="image/lianshu.png" alt="">
-                                        </div>
-                                        <div class="text" flex="cross:center">
-                                            立案数
-                                        </div>
-                                    </div>
-                                    <div class="a-right" flex="cross:center main:right">
-                                        <div class="item-num" id="LAS">
-                                            0
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="nav-item" flex="dir:left">
-                                    <div class="a-left" flex="ceoss:center ">
-                                        <div class="area-icon">
-                                            <img src="image/chuzhishu.png" alt="">
-                                        </div>
-                                        <div class="text" flex="cross:center">
-                                            处置数
-                                        </div>
-                                    </div>
-                                    <div class="a-right" flex="cross:center main:right">
-                                        <div class="item-num" id="CZS">
-                                            0
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="nav-item" flex="dir:left">
-                                    <div class="a-left" flex="ceoss:center ">
-                                        <div class="area-icon">
-                                            <img src="image/anqichuzhishu.png" alt="">
-                                        </div>
-                                        <div class="text" flex="cross:center">
-                                            按期处置数
-                                        </div>
-                                    </div>
-                                    <div class="a-right" flex="cross:center main:right">
-                                        <div class="item-num" id="AQCZS">
-                                            0
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="nav-item" flex="dir:left">
-                                    <div class="a-left" flex="ceoss:center ">
-                                        <div class="area-icon">
-                                            <img src="image/jieanshu.png" alt="">
-                                        </div>
-                                        <div class="text" flex="cross:center">
-                                            结案数
-                                        </div>
-                                    </div>
-                                    <div class="a-right" flex="cross:center main:right">
-                                        <div class="item-num" id="JAS">
-                                            0
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="g-footer">
-                            <div class="f-content" flex="main:left">
-                                <div class="border">
-                                    <img src="image/footer-border.png" alt="">
-                                </div>
-                                <div class="meter" flex="dir:top  cross:center">
-                                    <div id="lianlv"></div>
-                                    <p>立案率</p>
-                                </div>
-                                <div class="meter" flex="dir:top  cross:center">
-                                    <div id="chuzhilv"></div>
-                                    <p>处置率</p>
-                                </div>
-                                <div class="meter" flex="dir:top  cross:center">
-                                    <div id="anshilv"></div>
-                                    <p>按时处置率</p>
-                                </div>
-                                <div class="meter" flex="dir:top  cross:center">
-                                    <div id="jieanlv"></div>
-                                    <p>按时结案率</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!--地图-->
+            <!--概况展示-->
+            <div class="mn-show">
+              <div class="border-top">
+                <div class="border-top-s"></div>
+              </div>
+              <div class="s-content">
+                <div class="s-header" flex="cross:center">
+                  金华经济技术开发区辖区概况展示
+                  <div class="border-b">
+                    <div class="b-line"></div>
+                  </div>
                 </div>
-                <!--运行总量-->
-                <!--辖区介绍-->
-                <div class="mn-introduce">
-                    <div class="border-top">
-                        <div class="border-top-s"></div>
+              </div>
+              <div class="s-body">
+                <div class="body-con">
+                  <div class="btl"></div>
+                  <div class="btr"></div>
+                  <div class="bbl"></div>
+                  <div class="bbr"></div>
+                  <div class="middle">
+                    <img src="image/middle.png" alt="" />
+                  </div>
+                  <div class="show-items" flex="dir:left main:left ">
+                    <div class="s-item" flex="dir:left">
+                      <div class="item-left" flex="main:center cross:center">
+                        <img src="image/xiangzhenjiedao.png" alt="" />
+                      </div>
+                      <div class="item-right">
+                        <div class="item-r-t">
+                          乡镇街道
+                        </div>
+                        <div class="item-r-b xzjd">
+                          1
+                        </div>
+                      </div>
                     </div>
-                    <!--金华标题-->
-                    <div class="in-header" flex="cross:center">
-                        金华经济技术开发区辖区介绍
-                        <div class="border-b">
-                            <div class="b-line"></div>
+                    <div class="s-item" flex="dir:left">
+                      <div class="item-left" flex="main:center cross:center">
+                        <img src="image/shequshu.png" alt="" />
+                      </div>
+                      <div class="item-right">
+                        <div class="item-r-t">
+                          社区数
                         </div>
+                        <div class="item-r-b sqs">
+                          1
+                        </div>
+                      </div>
                     </div>
-                    <!--轮播图等-->
-                    <div class="in-main">
-                        <!--轮播图-->
-                        <div class="main-img">
-                            <div class="banner">
-                                <div class="cirbox">
-                                    <div class="cir cr"></div>
-                                    <div class="cir"></div>
-                                    <div class="cir"></div>
-                                </div>
-                                <div class="imgbox">
-                                    <img class="img im" src="image/timg2.jpg">
-                                    <img class="img" src="image/timgdd.jpg">
-                                    <img class="img" src="image/W020170916517949143188.jpg">
-                                </div>
-                            </div>
+                    <div class="s-item" flex="dir:left">
+                      <div class="item-left" flex="main:center cross:center">
+                        <img src="image/wanggeshu.png" alt="" />
+                      </div>
+                      <div class="item-right">
+                        <div class="item-r-t">
+                          网格数
                         </div>
-                        <!--轮播图-->
-                        <!--上下滚动字体-->
-                        <div class="main-text">
-                            <dib class="border-top-c"></dib>
-                            <div class="myscroll" id="textScroll">
-                                <ul>
-                                    <li><i class="yuandian"></i><a href="javascript:;">1992年06月，金华技术开发区成立。</a></li>
-                                    <li><i class="yuandian"></i><a
-                                            href="javascript:;">1993年02月，经浙江省人民政府批准升格为省级经济开发区。</a></li>
-                                    <li><i class="yuandian"></i><a href="javascript:;">2010年11月，经国务院批准升格为国家级经济技术开发区，并定名为金华经济技术开发区。</a>
-                                    </li>
-                                    <li><i class="yuandian"></i><a href="javascript:;">2013年10月与金西经济开发区成建制整合，实行“一块牌子、统一对外，一套班子、统筹管理”。经过20多年的发展，开发区先后被评为“国家青年科技创新示范基地”、“华东地区最具竞争力优秀创业园区”
-                                        、“浙江省外商投资新能源汽车产业基地”、“浙江省电子信息产业基地”、、“浙江省现代服务业集聚示范区”、“浙江开发区特别贡献（产城融合）”等。已成为金华对外开放的重要窗口，经济发展的重要增长极，高新技术产业的重要基地，“宜居城市”建设的重要载体。</a>
-                                    </li>
-                                    <li><i class="yuandian"></i><a href="javascript:;">1992年06月，金华技术开发区成立。</a></li>
-                                    <li><i class="yuandian"></i><a
-                                            href="javascript:;">1993年02月，经浙江省人民政府批准升格为省级经济开发区。</a></li>
-                                    <li><i class="yuandian"></i><a href="javascript:;">2010年11月，经国务院批准升格为国家级经济技术开发区，并定名为金华经济技术开发区。</a>
-                                    </li>
-                                    <li><i class="yuandian"></i><a href="javascript:;">2013年10月与金西经济开发区成建制整合，实行“一块牌子、统一对外，一套班子、统筹管理”。经过20多年的发展，开发区先后被评为“国家青年科技创新示范基地”、“华东地区最具竞争力优秀创业园区”
-                                        、“浙江省外商投资新能源汽车产业基地”、“浙江省电子信息产业基地”、、“浙江省现代服务业集聚示范区”、“浙江开发区特别贡献（产城融合）”等。已成为金华对外开放的重要窗口，经济发展的重要增长极，高新技术产业的重要基地，“宜居城市”建设的重要载体。</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="border-t-l"></div>
-                            <div class="border-t-r"></div>
-                            <div class="border-b-l"></div>
-                            <div class="border-b-r"></div>
+                        <div class="item-r-b wgs">
+                          --
                         </div>
-
+                      </div>
                     </div>
-                    <!--轮播图等-->
-                    <!--金华标题-->
-                    <!--辖区介绍-->
-                    <div class="in-footer" flex=" cross:center dir:top">
-                        <div class="area" flex="dir:left">
-                            <div class="a-left" flex="ceoss:center ">
-                                <div class="area-icon">
-                                    <img src="image/mianji.png" alt="">
-                                </div>
-                                <div class="text" flex="cross:center">
-                                    行政管辖面积(平方公里)
-                                </div>
-                            </div>
-                            <div class="a-right xzgxmj" flex="cross:center main:right">
-                                1
-                            </div>
+                    <div class="s-item" flex="dir:left">
+                      <div class="item-left" flex="main:center cross:center">
+                        <img src="image/zhifaduiyuan.png" alt="" />
+                      </div>
+                      <div class="item-right">
+                        <div class="item-r-t">
+                          执法队员
                         </div>
-                        <div class="people" flex="dir:left">
-                            <div class="a-left" flex="ceoss:center ">
-                                <div class="area-icon">
-                                    <img src="image/renkou.png" alt="">
-                                </div>
-                                <div class="text" flex="cross:center">
-                                    人口数量(万)
-                                </div>
-                            </div>
-                            <div class="a-right rksl" flex="cross:center main:right">
-                                1
-                            </div>
+                        <div class="item-r-b zfry">
+                          1
                         </div>
-                        <div class="government">
-                            <div class="g-header">
-                                <div class="a-left" flex="ceoss:center ">
-                                    <div class="area-icon">
-                                        <img src="image/jiedao.png" alt="">
-                                    </div>
-                                    <div class="text" flex="cross:center">
-                                        管辖街道
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="g-main">
-                                <div class="street" flex="main:left">
-                                    <!--<div class="streets">秋滨街道</div>-->
-                                    <!--<div class="streets">秋滨街道</div>-->
-                                    <!--<div class="streets">秋滨街道</div>-->
-                                    <!--<div class="streets">苏孟乡</div>-->
-                                    <!--<div class="streets">秋滨街道</div>-->
-                                    <!--<div class="streets">秋滨街道</div>-->
-                                    <!--<div class="streets">秋滨街道</div>-->
-                                    <!--<div class="streets">秋滨街道</div>-->
-                                </div>
-                            </div>
-                        </div>
+                      </div>
                     </div>
+                    <div class="s-item" flex="dir:left">
+                      <div class="item-left" flex="main:center cross:center">
+                        <img src="image/shouliyuan.png" alt="" />
+                      </div>
+                      <div class="item-right">
+                        <div class="item-r-t">
+                          受理员
+                        </div>
+                        <div class="item-r-b sly">
+                          1
+                        </div>
+                      </div>
+                    </div>
+                    <div class="s-item" flex="dir:left">
+                      <div class="item-left" flex="main:center cross:center">
+                        <img src="image/jiankongshu.png" alt="" />
+                      </div>
+                      <div class="item-right">
+                        <div class="item-r-t">
+                          监控数
+                        </div>
+                        <div class="item-r-b zks">
+                          1
+                        </div>
+                      </div>
+                    </div>
+                    <div class="s-item" flex="dir:left">
+                      <div class="item-left" flex="main:center cross:center">
+                        <img src="image/zfcl.png" alt="" />
+                      </div>
+                      <div class="item-right">
+                        <div class="item-r-t">
+                          执法车辆
+                        </div>
+                        <div class="item-r-b zfcl">
+                          --
+                        </div>
+                      </div>
+                    </div>
+                    <div class="s-item" flex="dir:left">
+                      <div class="item-left" flex="main:center cross:center">
+                        <img src="image/xgry.png" alt="" />
+                      </div>
+                      <div class="item-right">
+                        <div class="item-r-t">
+                          协管人员
+                        </div>
+                        <div class="item-r-b zfcl">
+                          --
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
+            <!--概况展示-->
+          </div>
+          <div class="mn-right" flex="dir:left">
+            <!--运行总量-->
+            <div class="mn-gross">
+              <div class="border-top">
+                <div class="border-top-s"></div>
+              </div>
+              <div class="g-content">
+                <div class="g-header" flex="cross:center main:justify">
+                  <div class="g-title">运行总量</div>
+                  <div class="g-nav">
+                    <ul flex="dir:left main:center cross:center box:mean">
+                      <li class="active"><a href="javascript:void(0);" id="dataTotal">总计</a></li>
+                      <li><a href="javascript:void(0);" id="dataDay">本日</a></li>
+                      <li><a href="javascript:void(0);" id="dataWeek">本周</a></li>
+                      <li><a href="javascript:void(0);" id="dataMonth">本月</a></li>
+                    </ul>
+                  </div>
+                  <div class="border-b">
+                    <div class="b-line"></div>
+                  </div>
+                </div>
+                <div class="g-body">
+                  <div class="nav-state">
+                    <div class="nav-item" flex="dir:left">
+                      <div class="a-left" flex="ceoss:center ">
+                        <div class="area-icon">
+                          <img src="image/zongshouliliang.png" alt="" />
+                        </div>
+                        <div class="text" flex="cross:center">
+                          总受理量
+                        </div>
+                      </div>
+                      <div class="a-right" flex="cross:center main:right">
+                        <div class="item-num" id="ZSLS">
+                          0
+                        </div>
+                      </div>
+                    </div>
+                    <div class="nav-item" flex="dir:left">
+                      <div class="a-left" flex="ceoss:center ">
+                        <div class="area-icon">
+                          <img src="image/lianshu.png" alt="" />
+                        </div>
+                        <div class="text" flex="cross:center">
+                          立案数
+                        </div>
+                      </div>
+                      <div class="a-right" flex="cross:center main:right">
+                        <div class="item-num" id="LAS">
+                          0
+                        </div>
+                      </div>
+                    </div>
+                    <div class="nav-item" flex="dir:left">
+                      <div class="a-left" flex="ceoss:center ">
+                        <div class="area-icon">
+                          <img src="image/chuzhishu.png" alt="" />
+                        </div>
+                        <div class="text" flex="cross:center">
+                          处置数
+                        </div>
+                      </div>
+                      <div class="a-right" flex="cross:center main:right">
+                        <div class="item-num" id="CZS">
+                          0
+                        </div>
+                      </div>
+                    </div>
+                    <div class="nav-item" flex="dir:left">
+                      <div class="a-left" flex="ceoss:center ">
+                        <div class="area-icon">
+                          <img src="image/anqichuzhishu.png" alt="" />
+                        </div>
+                        <div class="text" flex="cross:center">
+                          按期处置数
+                        </div>
+                      </div>
+                      <div class="a-right" flex="cross:center main:right">
+                        <div class="item-num" id="AQCZS">
+                          0
+                        </div>
+                      </div>
+                    </div>
+                    <div class="nav-item" flex="dir:left">
+                      <div class="a-left" flex="ceoss:center ">
+                        <div class="area-icon">
+                          <img src="image/jieanshu.png" alt="" />
+                        </div>
+                        <div class="text" flex="cross:center">
+                          结案数
+                        </div>
+                      </div>
+                      <div class="a-right" flex="cross:center main:right">
+                        <div class="item-num" id="JAS">
+                          0
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="g-footer">
+                  <div class="f-content" flex="main:left">
+                    <div class="border">
+                      <img src="image/footer-border.png" alt="" />
+                    </div>
+                    <div class="meter" flex="dir:top  cross:center">
+                      <div id="lianlv"></div>
+                      <p>立案率</p>
+                    </div>
+                    <div class="meter" flex="dir:top  cross:center">
+                      <div id="chuzhilv"></div>
+                      <p>处置率</p>
+                    </div>
+                    <div class="meter" flex="dir:top  cross:center">
+                      <div id="anshilv"></div>
+                      <p>按时处置率</p>
+                    </div>
+                    <div class="meter" flex="dir:top  cross:center">
+                      <div id="jieanlv"></div>
+                      <p>按时结案率</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--运行总量-->
+            <!--辖区介绍-->
+            <div class="mn-introduce">
+              <div class="border-top">
+                <div class="border-top-s"></div>
+              </div>
+              <!--金华标题-->
+              <div class="in-header" flex="cross:center">
+                金华经济技术开发区辖区介绍
+                <div class="border-b">
+                  <div class="b-line"></div>
+                </div>
+              </div>
+              <!--轮播图等-->
+              <div class="in-main">
+                <!--轮播图-->
+                <div class="main-img">
+                  <div class="banner">
+                    <div class="cirbox">
+                      <div class="cir cr"></div>
+                      <div class="cir"></div>
+                      <div class="cir"></div>
+                    </div>
+                    <div class="imgbox">
+                      <img class="img im" src="image/timg2.jpg" />
+                      <img class="img" src="image/timgdd.jpg" />
+                      <img class="img" src="image/W020170916517949143188.jpg" />
+                    </div>
+                  </div>
+                </div>
+                <!--轮播图-->
+                <!--上下滚动字体-->
+                <div class="main-text">
+                  <dib class="border-top-c"></dib>
+                  <div class="myscroll" id="textScroll">
+                    <ul>
+                      <li><i class="yuandian"></i><a href="javascript:;">1992年06月，金华技术开发区成立。</a></li>
+                      <li>
+                        <i class="yuandian"></i
+                        ><a href="javascript:;">1993年02月，经浙江省人民政府批准升格为省级经济开发区。</a>
+                      </li>
+                      <li>
+                        <i class="yuandian"></i
+                        ><a href="javascript:;"
+                          >2010年11月，经国务院批准升格为国家级经济技术开发区，并定名为金华经济技术开发区。</a
+                        >
+                      </li>
+                      <li>
+                        <i class="yuandian"></i
+                        ><a href="javascript:;"
+                          >2013年10月与金西经济开发区成建制整合，实行“一块牌子、统一对外，一套班子、统筹管理”。经过20多年的发展，开发区先后被评为“国家青年科技创新示范基地”、“华东地区最具竞争力优秀创业园区”
+                          、“浙江省外商投资新能源汽车产业基地”、“浙江省电子信息产业基地”、、“浙江省现代服务业集聚示范区”、“浙江开发区特别贡献（产城融合）”等。已成为金华对外开放的重要窗口，经济发展的重要增长极，高新技术产业的重要基地，“宜居城市”建设的重要载体。</a
+                        >
+                      </li>
+                      <li><i class="yuandian"></i><a href="javascript:;">1992年06月，金华技术开发区成立。</a></li>
+                      <li>
+                        <i class="yuandian"></i
+                        ><a href="javascript:;">1993年02月，经浙江省人民政府批准升格为省级经济开发区。</a>
+                      </li>
+                      <li>
+                        <i class="yuandian"></i
+                        ><a href="javascript:;"
+                          >2010年11月，经国务院批准升格为国家级经济技术开发区，并定名为金华经济技术开发区。</a
+                        >
+                      </li>
+                      <li>
+                        <i class="yuandian"></i
+                        ><a href="javascript:;"
+                          >2013年10月与金西经济开发区成建制整合，实行“一块牌子、统一对外，一套班子、统筹管理”。经过20多年的发展，开发区先后被评为“国家青年科技创新示范基地”、“华东地区最具竞争力优秀创业园区”
+                          、“浙江省外商投资新能源汽车产业基地”、“浙江省电子信息产业基地”、、“浙江省现代服务业集聚示范区”、“浙江开发区特别贡献（产城融合）”等。已成为金华对外开放的重要窗口，经济发展的重要增长极，高新技术产业的重要基地，“宜居城市”建设的重要载体。</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="border-t-l"></div>
+                  <div class="border-t-r"></div>
+                  <div class="border-b-l"></div>
+                  <div class="border-b-r"></div>
+                </div>
+              </div>
+              <!--轮播图等-->
+              <!--金华标题-->
+              <!--辖区介绍-->
+              <div class="in-footer" flex=" cross:center dir:top">
+                <div class="area" flex="dir:left">
+                  <div class="a-left" flex="ceoss:center ">
+                    <div class="area-icon">
+                      <img src="image/mianji.png" alt="" />
+                    </div>
+                    <div class="text" flex="cross:center">
+                      行政管辖面积(平方公里)
+                    </div>
+                  </div>
+                  <div class="a-right xzgxmj" flex="cross:center main:right">
+                    1
+                  </div>
+                </div>
+                <div class="people" flex="dir:left">
+                  <div class="a-left" flex="ceoss:center ">
+                    <div class="area-icon">
+                      <img src="image/renkou.png" alt="" />
+                    </div>
+                    <div class="text" flex="cross:center">
+                      人口数量(万)
+                    </div>
+                  </div>
+                  <div class="a-right rksl" flex="cross:center main:right">
+                    1
+                  </div>
+                </div>
+                <div class="government">
+                  <div class="g-header">
+                    <div class="a-left" flex="ceoss:center ">
+                      <div class="area-icon">
+                        <img src="image/jiedao.png" alt="" />
+                      </div>
+                      <div class="text" flex="cross:center">
+                        管辖街道
+                      </div>
+                    </div>
+                  </div>
+                  <div class="g-main">
+                    <div class="street" flex="main:left"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <!--主题内容-->
+      </div>
     </div>
-</div>
 
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/echarts.min.js"></script>
-<script type="text/javascript" src="js/echarts-gl.js"></script>
-<script type="text/javascript" src="js/charts.js"></script>
-<script type="text/javascript" src="js/echarts-liquidfill.min.js"></script>
-<script type="text/javascript" src="js/countUp.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/echarts-gl.js"></script>
+    <script type="text/javascript" src="js/charts.js"></script>
+    <script type="text/javascript" src="js/echarts-liquidfill.min.js"></script>
+    <script type="text/javascript" src="js/countUp.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
 
-<!-- 董浩然 -->
-<script type="text/javascript" src="hescgis/openlayers/ol-debug.js"></script>
-<script type="text/javascript" src="hescgis/openlayers/base.js"></script>
-<script type="text/javascript" src="hescgis/layers/tdtMaps.js"></script>
-<script type="text/javascript" src="hescgis/managers/baseMapManager.js"></script>
-<script type="text/javascript" src="hescgis/managers/mapManager.js"></script>
-<script type="text/javascript" src="js/mapXQGK.js"></script>
-<script>
-    var detailNameArr = ["乡镇街道", "社区数", "执法队员", "受理员", "监控数"];
-    var detailClassArr = ["xzjd", "sqs", "zfry", "sly", "zks"];
-    var mapNameArr = ["苏孟乡", "汤溪镇", "洋埠镇", "罗埠镇", "秋滨街道", "西关街道", "三江街道", "江南街道"];
-    var mapClassArr = ["smx", "txz", "ybz", "lbz", "qbjd", "xgjd", "sjjd", "jnjd"];
-    var areaNameArr = ["行政管辖面积(平方公里)", "人口数量(万)"];
-    var areaClassArr = ["xzgxmj", "rksl"];
-    //表盘数据对象
-    var bpData = {
-        "ZSLS": 0,
-        "LAS": 0,
-        "CZS": 0,
-        "AQCZS": 0,
-        "JAS": 0,
-        "LAL": 0,
-        "AQCLL": 0,
-        "AQJAL": 0
-    };
-    var url = "http://192.168.71.33:81/";    /*测试库*/
-    // var url = "http://60.191.224.129:83/";
-    /*正式*/
-    // var url = "http://192.168.71.154:8080/";     /*本地*/
-    var type = 0;
-    var kaoheqiu = [];
-    $(function () {
+    <!-- 董浩然 -->
+    <script type="text/javascript" src="hescgis/openlayers/ol-debug.js"></script>
+    <script type="text/javascript" src="hescgis/openlayers/base.js"></script>
+    <script type="text/javascript" src="hescgis/layers/tdtMaps.js"></script>
+    <script type="text/javascript" src="hescgis/managers/baseMapManager.js"></script>
+    <script type="text/javascript" src="hescgis/managers/mapManager.js"></script>
+    <script type="text/javascript" src="js/mapXQGK.js"></script>
+    <script>
+      var detailNameArr = ['乡镇街道', '社区数', '执法队员', '受理员', '监控数'];
+      var detailClassArr = ['xzjd', 'sqs', 'zfry', 'sly', 'zks'];
+      var mapNameArr = ['苏孟乡', '汤溪镇', '洋埠镇', '罗埠镇', '秋滨街道', '西关街道', '三江街道', '江南街道'];
+      var mapClassArr = ['smx', 'txz', 'ybz', 'lbz', 'qbjd', 'xgjd', 'sjjd', 'jnjd'];
+      var areaNameArr = ['行政管辖面积(平方公里)', '人口数量(万)'];
+      var areaClassArr = ['xzgxmj', 'rksl'];
+      //表盘数据对象
+      var bpData = {
+        ZSLS: 0,
+        LAS: 0,
+        CZS: 0,
+        AQCZS: 0,
+        JAS: 0,
+        LAL: 0,
+        AQCLL: 0,
+        AQJAL: 0,
+      };
+      var url = 'http://192.168.71.33:81/'; /*测试库*/
+      // var url = 'http://60.191.224.129:83/'; /*正式*/
+      var url2 = 'http://192.168.71.136:8080';
+      var type = 0;
+      var kaoheqiu = [];
+      $(function() {
         $.ajax({
-            method: "POST",
-            url: url + "api/bigScreen/index",
-            contentType: "text/plain",
-            dataType: "json"
-        }).done(function (data) {
-                if (data && data.result) {
-                    //金华经济技术开发区(地图)
-                    if (data.result.jhjskfq && data.result.jhjskfq.length > 0) {
-                        compareName(mapNameArr, mapClassArr, data.result.jhjskfq, "name", "mark");
-                    }
-
-                    //金华经济技术开发区辖区概况展示
-                    if (data.result.jhjs_detail && data.result.jhjs_detail.length > 0) {
-                        compareName(detailNameArr, detailClassArr, data.result.jhjs_detail, "name", "count");
-                    }
-
-                    //行政管辖面积及人口数量
-                    if (data.result.jhjs_area && data.result.jhjs_area.length > 0) {
-                        compareName(areaNameArr, areaClassArr, data.result.jhjs_area, "name", "mark");
-                    }
-
-                    //管辖街道
-                    if (data.result.jhjs_road && data.result.jhjs_road.length > 0) {
-                        getName(data.result.jhjs_road);
-                    }
-                }
-            }
-        ).fail(function () {
-            console.log("请求api/bigScreen/index接口失败！");
+          method: 'POST',
+          url: url2 + '/api/bigscreen/district',
+          contentType: 'text/plain',
+          dataType: 'json',
+        }).done(function(data) {
+          if (data && data.result) {
+            $('.xzjd').html(data.result.xzjd || '--'); // 乡镇街道
+            $('.sqs').html(data.result.sq || '--'); // 社区数
+            $('.wgs').html(data.result.wgs || '--'); // 网格数
+            $('.zfry').html(data.result.zfdy || '--'); // 执法队员
+            $('.sly').html(data.result.sly || '--'); // 受理员
+            $('.zks').html(data.result.jks || '--'); // 监控数
+            $('.zfcl').html(data.result.zfcl || '--'); // 执法车辆
+            $('.zfcl').html(data.result.xgry || '--'); // 协管人员
+          }
         });
+      });
+
+      $(function() {
+        $.ajax({
+          method: 'POST',
+          url: url + 'api/bigScreen/index',
+          contentType: 'text/plain',
+          dataType: 'json',
+        })
+          .done(function(data) {
+            if (data && data.result) {
+              //金华经济技术开发区(地图)
+              if (data.result.jhjskfq && data.result.jhjskfq.length > 0) {
+                compareName(mapNameArr, mapClassArr, data.result.jhjskfq, 'name', 'mark');
+              }
+
+              //行政管辖面积及人口数量
+              if (data.result.jhjs_area && data.result.jhjs_area.length > 0) {
+                compareName(areaNameArr, areaClassArr, data.result.jhjs_area, 'name', 'mark');
+              }
+
+              //管辖街道
+              if (data.result.jhjs_road && data.result.jhjs_road.length > 0) {
+                getName(data.result.jhjs_road);
+              }
+            }
+          })
+          .fail(function() {
+            console.log('请求api/bigScreen/index接口失败！');
+          });
 
         //获取运行总量数据
         initJump();
@@ -637,120 +667,142 @@
         var timer3 = null;
         //  timer0 = setInterval("getAjax(0);",5000);
 
-
         //点击总计
-        $("#dataTotal").click(function () {
-            initJump();
-            type = 0;
-            clearInterval(timer1);
-            clearInterval(timer2);
-            clearInterval(timer3);
-            getAjax(0);
-            // timer0 = setInterval("getAjax(0);",5000);
+        $('#dataTotal').click(function() {
+          initJump();
+          type = 0;
+          clearInterval(timer1);
+          clearInterval(timer2);
+          clearInterval(timer3);
+          getAjax(0);
+          // timer0 = setInterval("getAjax(0);",5000);
         });
         //点击本日
-        $("#dataDay").click(function () {
-            initJump();
-            type = 1;
-            getAjax(1);
-            clearInterval(timer0);
-            clearInterval(timer2);
-            clearInterval(timer3);
-            // timer1 = setInterval("getAjax(1);",5000);
+        $('#dataDay').click(function() {
+          initJump();
+          type = 1;
+          getAjax(1);
+          clearInterval(timer0);
+          clearInterval(timer2);
+          clearInterval(timer3);
+          // timer1 = setInterval("getAjax(1);",5000);
         });
         //点击本周
-        $("#dataWeek").click(function () {
-            type = 2;
-            initJump();
-            getAjax(2);
-            clearInterval(timer0);
-            clearInterval(timer1);
-            clearInterval(timer3);
-            // timer2 = setInterval("getAjax(2);",5000);
+        $('#dataWeek').click(function() {
+          type = 2;
+          initJump();
+          getAjax(2);
+          clearInterval(timer0);
+          clearInterval(timer1);
+          clearInterval(timer3);
+          // timer2 = setInterval("getAjax(2);",5000);
         });
         //点击本月
-        $("#dataMonth").click(function () {
-            type = 3;
-            initJump();
-            getAjax(3);
-            clearInterval(timer0);
-            clearInterval(timer1);
-            clearInterval(timer2);
-            // timer3 = setInterval("getAjax(3);",5000);
+        $('#dataMonth').click(function() {
+          type = 3;
+          initJump();
+          getAjax(3);
+          clearInterval(timer0);
+          clearInterval(timer1);
+          clearInterval(timer2);
+          // timer3 = setInterval("getAjax(3);",5000);
         });
+      });
 
-
-    });
-
-    function getQiuData() {
+      function getQiuData() {
         $.ajax({
-            method: "POST",
-            url: url + "api/bigData/score",
-            contentType: "text/plain",
-            dataType: "json"
-        }).done(function (data) {
+          method: 'POST',
+          url: url + 'api/bigData/score',
+          contentType: 'text/plain',
+          dataType: 'json',
+        })
+          .done(function(data) {
             kaoheqiu = data.result;
             getQiuChartByCode('-');
-        }).fail(function () {
-            console.log("请求api/bigData/score接口失败！");
-        });
-    }
+          })
+          .fail(function() {
+            console.log('请求api/bigData/score接口失败！');
+          });
+      }
 
-    getQiuData();
-    window.t1 = setInterval("getQiuData()", 60000);
+      getQiuData();
+      window.t1 = setInterval('getQiuData()', 60000);
 
-
-    //获取运行总量数据
-    function getAjax(type, placecode) {
+      //获取运行总量数据
+      function getAjax(type, placecode) {
         $.ajax({
-            method: "POST",
-            url: url + "api/bigScreen/index/data",
-            dataType: "json",
-            cache: false,
-            data: {"type": type, "placecode": placecode}
-        }).done(function (data) {
+          method: 'POST',
+          url: url + 'api/bigScreen/index/data',
+          dataType: 'json',
+          cache: false,
+          data: { type: type, placecode: placecode },
+        })
+          .done(function(data) {
             //console.log(data);
             if (data && data.result) {
-                bpData = {
-                    "ZSLS": data.result.zsls,
-                    "LAS": data.result.las,
-                    "CZS": data.result.czs,
-                    "AQCZS": data.result.aqczs,
-                    "JAS": data.result.jas,
-                    "LAL": data.result.lal,
-                    "CZL": data.result.czl,
-                    "AQCLL": data.result.aqcll,
-                    "AQJAL": data.result.aqjal
-                };
-                //仪表盘
-                getBiaoPan(bpData.LAL, bpData.CZL, bpData.AQCLL, bpData.AQJAL);
-                //运行数据
-                szBeat(bpData.ZSLS, bpData.LAS, bpData.CZS, bpData.AQCZS, bpData.JAS);
+              bpData = {
+                ZSLS: data.result.zsls,
+                LAS: data.result.las,
+                CZS: data.result.czs,
+                AQCZS: data.result.aqczs,
+                JAS: data.result.jas,
+                LAL: data.result.lal,
+                CZL: data.result.czl,
+                AQCLL: data.result.aqcll,
+                AQJAL: data.result.aqjal,
+              };
+              //仪表盘
+              getBiaoPan(bpData.LAL, bpData.CZL, bpData.AQCLL, bpData.AQJAL);
+              console.log(bpData);
+              // bpData.ZSLS, bpData.LAS, bpData.CZS, bpData.AQCZS, bpData.JAS
+              $('#ZSLS').html('');
+              for (const item of bpData.ZSLS.toString()) {
+                $('#ZSLS').append(`<span>${item}</span>`);
+              }
+              $('#LAS').html('');
+              for (const item of bpData.LAS.toString()) {
+                $('#LAS').append(`<span>${item}</span>`);
+              }
+              $('#CZS').html('');
+              for (const item of bpData.CZS.toString()) {
+                $('#CZS').append(`<span>${item}</span>`);
+              }
+              $('#AQCZS').html('');
+              for (const item of bpData.AQCZS.toString()) {
+                $('#AQCZS').append(`<span>${item}</span>`);
+              }
+              $('#JAS').html('');
+              for (const item of bpData.JAS.toString()) {
+                $('#JAS').append(`<span>${item}</span>`);
+              }
+              //运行数据
+              // szBeat(bpData.ZSLS, bpData.LAS, bpData.CZS, bpData.AQCZS, bpData.JAS);
             }
-        }).fail(function () {
-            console.log("请求api/bigScreen/index/data接口失败！");
-        });
-    }
+          })
+          .fail(function() {
+            console.log('请求api/bigScreen/index/data接口失败！');
+          });
+      }
 
-    //比对key获取相应值
-    function compareName(nameArr, classArr, obj, compateName, attrName) {
+      //比对key获取相应值
+      function compareName(nameArr, classArr, obj, compateName, attrName) {
         for (var i = 0; i < nameArr.length; i++) {
-            for (var j = 0; j < obj.length; j++) {
-                if ($.trim(nameArr[i]) == $.trim(obj[j][compateName])) {
-                    $("." + classArr[i]).html(obj[j][attrName]);
-                }
+          for (var j = 0; j < obj.length; j++) {
+            if ($.trim(nameArr[i]) == $.trim(obj[j][compateName])) {
+              $('.' + classArr[i]).html(obj[j][attrName]);
             }
+          }
         }
-    }
+      }
 
-    function getName(obj) {
+      function getName(obj) {
         for (var i = 0; i < obj.length; i++) {
-            $(".street").append("<div class=\"streets\">" + obj[i].name + "</div>")
+          $('.street').append('<div class="streets">' + obj[i].name + '</div>');
         }
-    }
+      }
 
-    //数字跳动函数
-    function szBeat(ZSLSV, LASV, CZSV, AQCZSV, JASV) {
+      //数字跳动函数
+      function szBeat(ZSLSV, LASV, CZSV, AQCZSV, JASV) {
         ZSLS.update(ZSLSV);
         LAS.update(LASV);
         CZS.update(CZSV);
@@ -763,84 +815,88 @@
         CZS.start();
         AQCZS.start();
         JAS.start();
-    }
+      }
 
-    var options = {
+      var options = {
         useEasing: true,
         useGrouping: false,
         separator: ',',
         decimal: '.',
-    };
-    var ZSLS = null;
-    var LAS = null;
-    var CZS = null;
-    var AQCZS = null;
-    var JAS = null;
+      };
+      var ZSLS = null;
+      var LAS = null;
+      var CZS = null;
+      var AQCZS = null;
+      var JAS = null;
 
-    //初始化跳动函数
-    function initJump() {
+      //初始化跳动函数
+      function initJump() {
         ZSLS = new CountUp('ZSLS', 0, 0, 0, 0.1, options);
         LAS = new CountUp('LAS', 0, 0, 0, 0.1, options);
         CZS = new CountUp('CZS', 0, 0, 0, 0.1, options);
         AQCZS = new CountUp('AQCZS', 0, 0, 0, 0.1, options);
         JAS = new CountUp('JAS', 0, 0, 0, 0.1, options);
-    }
+      }
 
-    function getQiuChartByCode(code) {
+      function getQiuChartByCode(code) {
         for (var i = 0; i < kaoheqiu.length; i++) {
-            if (kaoheqiu[i].placecode == code) {
-                getQiuChart(kaoheqiu[i].score);
-                break;
-            }
+          if (kaoheqiu[i].placecode == code) {
+            getQiuChart(kaoheqiu[i].score);
+            break;
+          }
         }
         if (i == kaoheqiu.length) {
-            getQiuChart(0.1);
+          getQiuChart(0.1);
         }
-    }
+      }
 
-    function getQiuChart(fillData) {
+      function getQiuChart(fillData) {
         var showData = ((20 + (fillData - 80) * 4) / 100).toFixed(4);
         var mycharts = echarts.init(document.getElementById('liquidFill-chart'));
         var liquidFillChartOption = {
-            series: [{
-                type: 'liquidFill',
-                radius: '80%',
-                outline: {
-                    show: false
+          series: [
+            {
+              type: 'liquidFill',
+              radius: '80%',
+              outline: {
+                show: false,
+              },
+              backgroundStyle: {
+                borderWidth: 0,
+                color: 'rgba(3,238,251,0.5)',
+              },
+              amplitude: 3,
+              waveLength: '20%',
+              data: [
+                {
+                  value: showData,
+                  direction: 'left',
+                  itemStyle: {
+                    color: 'rgba(3,238,251,0.9)',
+                  },
                 },
-                backgroundStyle: {
-                    borderWidth: 0,
-                    color: 'rgba(3,238,251,0.5)'
+                {
+                  value: showData,
+                  itemStyle: {
+                    color: 'rgba(1,172,236,0.8)',
+                  },
                 },
-                amplitude: 3,
-                waveLength: '20%',
-                data: [{
-                    value: showData,
-                    direction: 'left',
-                    itemStyle: {
-                        color: 'rgba(3,238,251,0.9)'
-                    }
-                }, {
-                    value: showData,
-                    itemStyle: {
-                        color: 'rgba(1,172,236,0.8)'
-                    }
-                }],
-                label: {
-                    position: ['50%', '75%'],
-                    fontSize: 22,
-                    color: '#0c1566',
-                    insideColor: '#0c1566',
-                    fontWeight: 'normal',
-                    formatter: function (param) {
-                        return (25 * param.value + 75).toFixed(2)
-                    }
-                }
-            }]
-        }
+              ],
+              label: {
+                position: ['50%', '75%'],
+                fontSize: 22,
+                color: '#0c1566',
+                insideColor: '#0c1566',
+                fontWeight: 'normal',
+                formatter: function(param) {
+                  return (25 * param.value + 75).toFixed(2);
+                },
+              },
+            },
+          ],
+        };
         mycharts.setOption(liquidFillChartOption);
-    }
-
-</script>
-</body>
+      }
+    </script>
+  </body>
 </html>

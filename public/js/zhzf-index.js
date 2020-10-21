@@ -1,11 +1,5 @@
 var baseurl='http://sq.hnszcg.gov.cn';
 $(function() {
-    /*nav点击事件高亮*/
-    $(".nav").on("click", function () {
-        $(".nav").removeClass("active").addClass("nav-icon");
-        $(this).removeClass("nav-icon").addClass("active");
-    });
-
     /*nav-获取本地时间*/
     //同步当前设备的时间
     time();
