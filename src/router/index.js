@@ -10,6 +10,11 @@ const routes = [
     name: 'IntelligentAnalytics',
     component: () => import('../views/IntelligentAnalytics/IntelligentAnalytics.vue'),
   },
+  {
+    path: '/street-analysis',
+    name: 'StreetAnalysis',
+    component: () => import('../views/StreetAnalysis/StreetAnalysis.vue'),
+  },
 ];
 
 const router = new VueRouter({ routes });

@@ -76,19 +76,9 @@
 export default {
   name: 'rollAnimation',
   mounted() {
-    TweenMax.set('svg', {
-      visibility: 'visible',
-    });
-    TweenMax.set('.blueRing', {
-      rotation: 90,
-      transformOrigin: '50% 50%',
-    });
-    TweenMax.to('.whole', 2.6, {
-      rotation: 360,
-      transformOrigin: '50% 50%',
-      ease: Linear.easeNone,
-      repeat: -1,
-    });
+    TweenMax.set('svg', { visibility: 'visible' });
+    TweenMax.set('.blueRing', { rotation: 90, transformOrigin: '50% 50%' });
+    TweenMax.to('.whole', 2.6, { rotation: 360, transformOrigin: '50% 50%', ease: Linear.easeNone, repeat: -1 });
   },
 };
 </script>

@@ -44,6 +44,9 @@ export default {
     EquipmentList,
     IllegalBuilding,
   },
+  mounted() {
+    document.title = '视频分析专题';
+  },
 };
 </script>
 

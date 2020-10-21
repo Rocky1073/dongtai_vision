@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import RollAnimation from '@/components/filesDispose/rollNum/rollAnimation/rollAnimation';
+import RollAnimation from '../filesDispose/rollNum/rollAnimation/rollAnimation';
 import { getDeviceState } from '@/services/IntelligentAnalytics.js';
 
 export default {
