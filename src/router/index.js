@@ -17,6 +17,6 @@ const routes = [
   },
 ];
 
-const router = new VueRouter({ routes });
+const router = new VueRouter({ base: '/dongtai_vision/', routes });
 
 export default router;

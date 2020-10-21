@@ -1,0 +1,156 @@
+@charset "UTF-8";
+.hescgis_map{
+	width: 100%;
+    height: 100%;
+}
+.hescgis-control-legend {
+	top: 50%;
+	left: 1em;
+	color: darkblue;
+    background-color: transparent;  
+	width: 9em;
+    font-family: sans-serif;
+    font-size: smaller;
+    margin-top: 3px;
+    margin-left: 0px;
+    margin-bottom: 0px; 
+}
+
+.hescgis-control-legend .legendDiv {
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+	background-color: rgba(200, 200, 200, 0.5);
+}
+
+.hescgis-control-legend .legendDiv .title {
+	margin-top: 3px;
+	margin-left: 30px;
+	margin-bottom: 3px;
+	display: inline-block;
+	height: 30px;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 10px;
+}
+#buttonDiv{    
+    position: absolute;
+    z-index: 99;
+    right: .5em;
+    top: .65em;
+    /* height: 33px; */
+    /* width: 7em; */
+    /* padding: 2px; */
+    cursor: pointer;
+}
+
+   #buttonFlag{
+    background-image: url(../../hescgis/assets/images/controls/buttonflag.png);
+    top: 0;
+    width: 2.5em;
+    height: 33px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-repeat: no-repeat;
+    background-position: center center;
+   }
+   #buttonOnMap{
+    color: rgb(255, 255, 255);
+    font-size: .5em;
+    border-radius: 4px;
+    box-sizing: inherit;
+    background-color: rgba(43, 143, 243, 0.902);
+    border-width: 1px;
+    border-color: rgba(43, 143, 243, 0.902);
+    padding: 5px 10px 5px 30px;
+    cursor: pointer;
+    height: 35px;
+   }
+   #buttonOnMap:hover{
+     background-color:rgba(43, 143, 243, 0.902);
+   }
+    
+   .map-stor-list-left .list-left-top .list-left-top-title-reputation .mqsb-item-sanxing {
+  background-image: url("../../mqsb/image/sprite/sprite.png");
+  background-position: 0px -51px;
+  width: 40px;
+  height: 12px;
+  width: 40px;
+  height: 12px;
+  margin-top: -2px;
+  margin-right: 5px;
+}
+
+ .map-stor-list-left .list-left-top .list-left-top-title-reputation .mqsb-item-liangxing {
+  background-image: url("../../mqsb/image/sprite/sprite.png");
+  background-position: 0px -34px;
+  width: 26px;
+  height: 12px;
+  width: 26px;
+  height: 12px;
+  margin-top: 3px;
+  margin-right: 5px;
+}
+
+ .map-stor-list-left .list-left-top .list-left-top-title-reputation.mqsb-item-yixing {
+  background-image: url("../../mqsb/image/sprite/sprite.png");
+  background-position: 0px -68px;
+  width: 12px;
+  height: 12px;
+  width: 12px;
+  height: 12px;
+  margin-top: 3px;
+  margin-right: 5px;
+}
+
+ .map-stor-list-left .list-left-top .list-left-top-title-reputation.mqsb-item-huangpai {
+  background-image: url("../../mqsb/image/sprite/sprite.png");
+  background-position: 0px -17px;
+  width: 12px;
+  height: 12px;
+  width: 12px;
+  height: 12px;
+  margin-top: 3px;
+  margin-right: 5px;
+}
+
+ .map-stor-list-left .list-left-top .list-left-top-title-reputation.mqsb-item-hongpai {
+  background-image: url("../../mqsb/image/sprite/sprite.png");
+  background-position: 0px 0px;
+  width: 12px;
+  height: 12px;
+  width: 12px;
+  height: 12px;
+  margin-top: 3px;
+  margin-right: 5px;
+}
+
+/*省市县清空按钮开始*/
+.build .build-map .map-particular-main-nav form .search-item .btn-clear{
+	position: absolute;
+    top: 50%;
+    left: 250px;
+    cursor: pointer;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+    background-color: #CED4DA;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px !important;
+    height: 20px;
+    width: 20px;
+    padding-left: 2px;
+}
+.build .build-map .map-particular-main-nav form .search-item .btn-clear .btn-clear i{
+	font-size: 12px !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+	
+}
+/*省市县清空按钮结束*/

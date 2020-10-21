@@ -1,0 +1,12 @@
+{
+	"MapServer" :"http://60.191.115.34:8080/geoserver/hescgis/wms",
+	"QueryServer" :"http://60.191.115.34:8080/geoserver/hescgis/ows",
+	"LayersWangGe" :"hescgis:gps",
+	"Layersdywg" :"hescgis:dywg",
+	"Layersjdwg" :"hescgis:jdwg",
+	"Layerssq" :"hescgis:sq",
+	"Layersjd" :"hescgis:jd",
+	"boundAllRegion":"120.14599,30.25927,120.17174,30.27258",
+	"boundInit":"120.14599,30.25927,120.17174,30.27258",
+	"aMapKey":"9ffa2aea2a26c41bdbcbd9e937f77de0"
+}

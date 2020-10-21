@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/*unit--按钮、输入框、loading、图标*/
+@font-face {
+  font-family: "baiduzongyi";
+  src: url("../front/baiduzongyi.ttf") format("truetype");
+  src: url("../front/DS-DIGIB.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "DS-DIGI";
+  src: url("../front/DS-DIGI.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "DS-DIGIB";
+  src: url("../front/DS-DIGIB.ttf") format("truetype");
+}

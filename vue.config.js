@@ -5,7 +5,6 @@ module.exports = {
   publicPath: '/dongtai_vision',
   outputDir: 'dongtai_vision',
   productionSourceMap: false,
-  // requireModuleExtension: false,
   lintOnSave: false,
   devServer: {
     before(app) {
