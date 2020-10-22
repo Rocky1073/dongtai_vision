@@ -697,7 +697,7 @@
       window.t1 = setInterval('getQiuData()', 60000);
 
       //获取运行总量数据
-      function getAjax(index) {
+      function getAjax(index, placecode) {
         var type = '';
         if (index === 0) type = '';
         else if (index === 1) type = 'day';
