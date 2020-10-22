@@ -556,17 +556,25 @@
       $(function() {
         initJump();
         //累计数量
-        getAjax(0);
+        // getAjax(0);
         //今日新增
-        getAjax(1);
+        // getAjax(1);
         //案卷统计
-        getFileCount(6);
+        getSourceType();
         //高发问题TOP5
-        getFileCount(7);
+        getTop5();
+        // getFileCount(7);
         //案卷热词分析
-        getFileCount(8);
+        getWordCould();
+        // 案卷处理概况
+        getEventDealsurvey();
+        // getFileCount(8);
+        // 案卷处理概况-图表
+        getEventDealsurveyTrend();
+        // 案卷分布
+        // getEventPublish();
         //获取最近7天数据
-        getSevenDatas();
+        // getSevenDatas();
         //案卷分布type 0全部 1本日 2本周  3本月
         getFiledistribution(0);
         //点击按钮切换本日本周本月
@@ -584,15 +592,98 @@
 
       var url = 'http://192.168.71.33:81/';
       //    var url = "http://60.191.224.129:83/"; <!-- 正式 -->
+      var url2 = 'http://192.168.71.136:8080';
+      function getSourceType() {
+        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/lyfs', dataType: 'json' }).done(function(data) {
+          if (data && data.result && data.result.length > 0) {
+            var arr = [];
+            for (var i = 0; i < data.result.length; i++) {
+              arr.push({ name: data.result[i].name, value: data.result[i].num });
+            }
+            getSource(arr, 'chartsSource');
+          }
+        });
+      }
+      function getTop5() {
+        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/top5', dataType: 'json' }).done(function(data) {
+          if (data && data.result && data.result.length > 0) {
+            var xData = [];
+            var yData = [];
+            for (var i = 0; i < data.result.length; i++) {
+              xData.push(data.result[i].name);
+              yData.push(data.result[i].num);
+            }
+            getTopEvents(xData, yData, data.result);
+          }
+        });
+      }
+      function getWordCould() {
+        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/hotWords', dataType: 'json' }).done(function(data) {
+          if (data && data.result && data.result.length > 0) {
+            var arr = [];
+            for (var i = 0; i < data.result.length; i++) {
+              arr.push({ name: data.result[i].name, value: data.result[i].num });
+            }
+            getHotWords(arr);
+          }
+        });
+      }
+      function getEventDealsurvey() {
+        $.ajax({ method: 'POST', url: url + '/api/bigscreen/eventDealsurvey', dataType: 'json' }).done(function(data) {
+          if (data && data.result) {
+            $('.ZSLS').html(data.result.sbs); // 累计上报数
+            $('.LAS').html(data.result.las); // 累计立案数
+            $('.CZS').html(data.result.cls); // 累计处理数
+            $('.JAS').html(data.result.jas); // 累计结案数
+            $('.today-ZSLS').html(data.result.today_sbs); // 今日新增-累计上报数
+            $('.today-LAS').html(data.result.today_las); // 今日新增-累计立案数
+            $('.today-CZS').html(data.result.today_cls); // 今日新增-累计处理数
+            $('.today-JAS').html(data.result.today_jas); // 今日新增-累计结案数
+          }
+          //运行数据
+          szBeat(data.result.zsls, data.result.las, data.result.czs, data.result.jas, type);
+        });
+      }
+      function getEventDealsurveyTrend() {
+        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/eventDealsurveyTrend', dataType: 'json' }).done(function(data) {
+          if (data && data.result && data.result.length > 0) {
+            var sbsArr = [];
+            var lasArr = [];
+            var czsArr = [];
+            var jasArr = [];
+            var dateArr = [];
+            for (var i = 0; i < data.result.length; i++) {
+              sbsArr.push(data.result[i].sbs);
+              lasArr.push(data.result[i].las);
+              czsArr.push(data.result[i].cls);
+              jasArr.push(data.result[i].jas);
+              dateArr.push(data.result[i].date);
+            }
+            showSevenDatas(sbsArr.reverse(), lasArr.reverse(), czsArr.reverse(), dateArr.reverse());
+          }
+        });
+      }
+      function getEventPublish() {
+        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/eventPublish', dataType: 'json' }).done(function(data) {
+          if (data && data.result && data.result.length > 0) {
+            var streetnameArr = [];
+            var ksclArr = [];
+            var asclArr = [];
+            var csclArr = [];
+            for (var i = 0; i < data.result.length; i++) {
+              streetnameArr.push(data.result[i].streetname);
+              ksclArr.push(data.result[i].kscls);
+              asclArr.push(data.result[i].ascls);
+              csclArr.push(data.result[i].cscls);
+            }
+            showFileDatas(streetnameArr, ksclArr, asclArr, csclArr);
+          }
+        });
+      }
 
       //获取运行总量数据
       function getAjax(type) {
-        $.ajax({
-          method: 'POST',
-          url: url + 'api/bigScreen/index/data',
-          dataType: 'json',
-          data: { type: type },
-        })
+        $.ajax({ method: 'POST', url: url + 'api/bigScreen/index/data', dataType: 'json', data: { type: type } })
           .done(function(data) {
             if (data && data.result) {
               if (type == 0) {
@@ -625,10 +716,7 @@
         })
           .done(function(data) {
             if (data && data.result && data.result.length > 0) {
-              if (type == 6) {
-                var scaleData = [];
-                getJson(data.result, scaleData, type);
-              } else if (type == 7) {
+              if (type == 7) {
                 // var xData = ["污水井盖", "上水井盖", "户外广告", "渣土乱倒", "热力管道"];
                 // var yData = [110, 100, 80, 70, 50];
                 var xData = [];
@@ -647,12 +735,7 @@
 
       //获取7天数据
       function getSevenDatas() {
-        $.ajax({
-          method: 'POST',
-          url: url + 'api/bigScreen/last7Days',
-          contentType: 'text/plain',
-          dataType: 'json',
-        })
+        $.ajax({ method: 'POST', url: url + 'api/bigScreen/last7Days', contentType: 'text/plain', dataType: 'json' })
           .done(function(data) {
             if (data && data.result && data.result.length > 0) {
               var absArr = [];
@@ -669,15 +752,9 @@
 
       //案卷分布ajax获取数据
       function getFiledistribution(type) {
-        $.ajax({
-          method: 'POST',
-          url: url + 'api/bigScreen/ajfb',
-          dataType: 'json',
-          data: { type: type },
-        })
+        $.ajax({ method: 'POST', url: url + 'api/bigScreen/ajfb', dataType: 'json', data: { type: type } })
           .done(function(data) {
             if (data && data.result && data.result.length > 0) {
-              console.log(data.result);
               var streetnameArr = [];
               var ksclArr = [];
               var asclArr = [];
@@ -711,11 +788,7 @@
           var obj = { name: target[i].name, value: target[i].count };
           arr.push(obj);
         }
-        if (type == 6) {
-          getSource(arr);
-        } else if (type == 8) {
-          getHotWords(arr);
-        }
+        if (type == 8) getHotWords(arr);
       }
 
       //获取名字及数量
