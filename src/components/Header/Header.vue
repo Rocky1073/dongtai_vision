@@ -3,45 +3,42 @@
     <!--中间的icon-->
     <div class="header-left" flex="main:center cross:center">金开区运行驾驶舱</div>
     <div class="header-nav" flex="main:center cross:top">
-      <div class="nav-icon nav">
-        <template v-if="zhddChildren.includes($route.name)">
-          <img src="image/zhcg-a.png" alt="" draggable="false" />
-          <img data-v-3aa2c809="" src="image/active.png" alt="" class="active" draggable="false" />
-        </template>
-        <a draggable="false" href="#/jurisdiction" v-else>
-          <img src="image/zhcg.png" alt="" draggable="false" />
-        </a>
-      </div>
-      <div class="nav-icon nav">
-        <img src="image/zhzf.png" alt="" draggable="false" />
-      </div>
-      <div class="nav-icon nav">
-        <img src="image/khpj.png" alt="" draggable="false" />
-      </div>
-      <div class="nav-icon nav">
-        <img src="image/spzp.png" alt="" draggable="false" />
-      </div>
-      <div class="nav-icon nav">
-        <template v-if="$route.name === 'Dispatch'">
-          <img src="image/zhdd-a.png" alt="" draggable="false" />
-          <img data-v-3aa2c809="" src="image/active.png" alt="" class="active" draggable="false" />
-        </template>
-        <a draggable="false" href="#/dispatch" v-else>
-          <img src="image/zhdd.png" alt="" draggable="false" />
-        </a>
-      </div>
-      <div flex="main:center" class="nav-menu" v-if="zhddChildren.includes($route.name)">
-        <a draggable="false" href="#/jurisdiction" :style="{ color: $route.name === 'Jurisdiction' ? '#fff' : '' }"
-          >【&nbsp;辖区概况&nbsp;】</a
-        >
-        <a draggable="false" href="#/map" :style="{ color: $route.name === 'Map' ? '#fff' : '' }"
-          >【&nbsp;一图管城&nbsp;】</a
-        >
-        <a draggable="false" href="#/exhibition" :style="{ color: $route.name === 'Exhibition' ? '#fff' : '' }"
-          >【&nbsp;专题展示&nbsp;】</a
-        >
-        <a draggable="false" href="files.html">【&nbsp;案卷处理&nbsp;】</a>
-      </div>
+      <a href="control.html">
+        <div class="nav-icon nav" flex="dir:top main:justify cross:center">
+          <img src="image/xqgk.png" alt="" />
+          <div class="icon-title" flex="main:center cross:center">辖区概况</div>
+        </div>
+      </a>
+      <a href="files.html">
+        <div class="nav-icon nav" flex="dir:top main:justify cross:center">
+          <img src="image/zhcg.png" alt="" />
+          <div class="icon-title" flex="main:center cross:center">智慧城管</div>
+        </div>
+      </a>
+      <a href="zhzf.html">
+        <div class="nav-icon nav" flex="dir:top main:justify cross:center">
+          <img src="image/zhzf.png" alt="" />
+          <div class="icon-title" flex="main:center cross:center">综合执法</div>
+        </div>
+      </a>
+      <a href="#/city-analytics">
+        <div class="nav-icon nav active" flex="dir:top main:justify cross:center">
+          <img src="image/cstz-a.png" alt="" />
+          <div class="icon-title" flex="main:center cross:center">城市体征</div>
+        </div>
+      </a>
+      <a href="#/intelligent-analytics">
+        <div class="nav-icon nav" flex="dir:top main:justify cross:center">
+          <img src="image/dlhx.png" alt="" />
+          <div class="icon-title" flex="main:center cross:center">道路画像</div>
+        </div>
+      </a>
+      <a href="#/street-analysis">
+        <div class="nav-icon nav" flex="dir:top main:justify cross:center">
+          <img src="image/znfx.png" alt="" />
+          <div class="icon-title" flex="main:center cross:center">智能分析</div>
+        </div>
+      </a>
       <!--左右的滚动箭头-->
       <div class="nav-left-zuo">
         <div class="zuo" flex="dir:left"></div>
@@ -77,8 +74,6 @@
 </template>
 
 <script>
-import moment from 'moment';
-
 export default {
   name: 'Header',
   data() {
@@ -95,25 +90,16 @@ export default {
     };
   },
   mounted() {
-    const time = moment();
-    function week(string) {
-      if (string === '1') return '周一';
-      else if (string === '2') return '周二';
-      else if (string === '3') return '周三';
-      else if (string === '4') return '周四';
-      else if (string === '5') return '周五';
-      else if (string === '6') return '周六';
-      else if (string === '7') return '周日';
-    }
+    const weeks = ['周天', '周一', '周二', '周三', '周四', '周五', '周六'];
     this.interval = setInterval(() => {
+      const time = new Date();
       this.year = time.format('YYYY');
       this.month = time.format('MM');
       this.day = time.format('DD');
       this.hours = time.format('HH');
       this.minutes = time.format('mm');
       this.seconds = time.format('ss');
-      this.week = week(time.format('E'));
-      time.add('second', 1);
+      this.week = weeks[time.getDay()];
     }, 1000);
   },
   beforeDestroy() {
@@ -121,3 +107,7 @@ export default {
   },
 };
 </script>
+
+<style scope lang="less">
+@import 'Header';
+</style>

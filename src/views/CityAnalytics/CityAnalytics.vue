@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import Header from '@/components/Header/Header';
+
 export default {
   name: 'CityAnalytics',
   components: { Header },

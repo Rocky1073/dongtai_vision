@@ -1987,69 +1987,8 @@ body #screen .content .header .header-nav .active .huangdong {
   top: 36px;
 }
 
-body #screen .content .header .header-nav .active .icon1 {
-  width: 40px;
-  height: 40px;
-  background: url('../image/acshishiguankong.png') no-repeat center center;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  cursor: pointer;
-}
-
-body #screen .content .header .header-nav .active .icon2 {
-  width: 40px;
-  height: 40px;
-  background: url('../image/acxiaqugaikuang.png') no-repeat center center;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-body #screen .content .header .header-nav .active .icon3 {
-  width: 40px;
-  height: 40px;
-  background: url('../image/acmqsb.png') no-repeat center center;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-body #screen .content .header .header-nav .active .icon4 {
-  width: 40px;
-  height: 40px;
-  background: url('../image/wjactive.png') no-repeat center center;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-body #screen .content .header .header-nav .active .icon5 {
-  width: 40px;
-  height: 40px;
-  background: url('../image/acanjuanchuli.png') no-repeat center center;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
 body #screen .content .header .header-nav .active:hover {
   padding-top: 18px;
-}
-
-body #screen .content .header .header-nav .active:hover .icon1 {
-  background: url('../image/acshishiguankong.png') no-repeat center center;
-}
-
-body #screen .content .header .header-nav .active:hover .icon2 {
-  background: url('../image/acxiaqugaikuang.png') no-repeat center center;
-}
-
-body #screen .content .header .header-nav .active:hover .icon3 {
-  background: url('../image/acmqsb.png') no-repeat center center;
-}
-
-body #screen .content .header .header-nav .active:hover .icon4 {
-  background: url('../image/wjactive.png') no-repeat center center;
-}
-
-body #screen .content .header .header-nav .active:hover .icon5 {
-  background: url('../image/acanjuanchuli.png') no-repeat center center;
 }
 
 body #screen .content .header .header-nav .nav-border-mid {
