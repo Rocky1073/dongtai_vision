@@ -22,9 +22,7 @@
         <!--头部-->
         <div class="header" flex="dir:left">
           <!--中间的icon-->
-          <div class="header-left" flex="main:center cross:center">
-            城市管理运行指挥中心
-          </div>
+          <div class="header-left" flex="main:center cross:center">城市管理运行指挥中心</div>
           <div class="header-nav" flex="main:center cross:center">
             <a href="control.html">
               <div class="nav-icon nav" flex="dir:top main:justify cross:center">
@@ -44,19 +42,19 @@
                 <div class="icon-title" flex="main:center cross:center">综合执法</div>
               </div>
             </a>
-            <a>
+            <a href="/dongtai_vision/#/city-analytics">
               <div class="nav-icon nav" flex="dir:top main:justify cross:center">
                 <img src="image/cstz.png" alt="" />
                 <div class="icon-title" flex="main:center cross:center">城市体征</div>
               </div>
             </a>
-            <a>
+            <a href="/dongtai_vision/#/intelligent-analytics">
               <div class="nav-icon nav" flex="dir:top main:justify cross:center">
                 <img src="image/dlhx.png" alt="" />
                 <div class="icon-title" flex="main:center cross:center">道路画像</div>
               </div>
             </a>
-            <a>
+            <a href="/dongtai_vision/#/street-analysis">
               <div class="nav-icon nav" flex="dir:top main:justify cross:center">
                 <img src="image/znfx.png" alt="" />
                 <div class="icon-title" flex="main:center cross:center">智能分析</div>
@@ -665,9 +663,9 @@
         });
       }
       function getEventPublish(index) {
-        console.log(index);
         var type = '';
-        if (index === 1) type = 'day';
+        if (index === 0) type = '';
+        else if (index === 1) type = 'day';
         else if (index === 2) type = 'week';
         else if (index === 3) type = 'month';
         $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/eventPublish', dataType: 'json', data: { type: type } }).done(

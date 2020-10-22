@@ -46,26 +46,25 @@
                 <div class="icon-title" flex="main:center cross:center">综合执法</div>
               </div>
             </a>
-            <a>
+            <a href="/dongtai_vision/#/city-analytics">
               <div class="nav-icon nav" flex="dir:top main:justify cross:center">
                 <img src="image/cstz.png" alt="" />
                 <div class="icon-title" flex="main:center cross:center">城市体征</div>
               </div>
             </a>
-            <a>
+            <a href="/dongtai_vision/#/intelligent-analytics">
               <div class="nav-icon nav" flex="dir:top main:justify cross:center">
                 <img src="image/dlhx.png" alt="" />
                 <div class="icon-title" flex="main:center cross:center">道路画像</div>
               </div>
             </a>
-            <a>
+            <a href="/dongtai_vision/#/street-analysis">
               <div class="nav-icon nav" flex="dir:top main:justify cross:center">
                 <img src="image/znfx.png" alt="" />
                 <div class="icon-title" flex="main:center cross:center">智能分析</div>
               </div>
             </a>
             <!--中间的icon-->
-
             <!--左右的滚动箭头-->
             <div class="nav-left-zuo">
               <div class="zuo" flex="dir:left"></div>
@@ -344,9 +343,7 @@
                         </div>
                       </div>
                       <div class="a-right" flex="cross:center main:right">
-                        <div class="item-num" id="ZSLS">
-                          0
-                        </div>
+                        <div class="item-num" id="ZSLS">0</div>
                       </div>
                     </div>
                     <div class="nav-item" flex="dir:left">
@@ -359,9 +356,7 @@
                         </div>
                       </div>
                       <div class="a-right" flex="cross:center main:right">
-                        <div class="item-num" id="LAS">
-                          0
-                        </div>
+                        <div class="item-num" id="LAS">0</div>
                       </div>
                     </div>
                     <div class="nav-item" flex="dir:left">
@@ -374,9 +369,7 @@
                         </div>
                       </div>
                       <div class="a-right" flex="cross:center main:right">
-                        <div class="item-num" id="CZS">
-                          0
-                        </div>
+                        <div class="item-num" id="CZS">0</div>
                       </div>
                     </div>
                     <div class="nav-item" flex="dir:left">
@@ -389,9 +382,7 @@
                         </div>
                       </div>
                       <div class="a-right" flex="cross:center main:right">
-                        <div class="item-num" id="AQCZS">
-                          0
-                        </div>
+                        <div class="item-num" id="AQCZS">0</div>
                       </div>
                     </div>
                     <div class="nav-item" flex="dir:left">
@@ -404,9 +395,7 @@
                         </div>
                       </div>
                       <div class="a-right" flex="cross:center main:right">
-                        <div class="item-num" id="JAS">
-                          0
-                        </div>
+                        <div class="item-num" id="JAS">0</div>
                       </div>
                     </div>
                   </div>
@@ -593,48 +582,32 @@
       var areaNameArr = ['行政管辖面积(平方公里)', '人口数量(万)'];
       var areaClassArr = ['xzgxmj', 'rksl'];
       //表盘数据对象
-      var bpData = {
-        ZSLS: 0,
-        LAS: 0,
-        CZS: 0,
-        AQCZS: 0,
-        JAS: 0,
-        LAL: 0,
-        AQCLL: 0,
-        AQJAL: 0,
-      };
+      var bpData = { ZSLS: 0, LAS: 0, CZS: 0, AQCZS: 0, JAS: 0, LAL: 0, AQCLL: 0, AQJAL: 0 };
       var url = 'http://192.168.71.33:81/'; /*测试库*/
       // var url = 'http://60.191.224.129:83/'; /*正式*/
       var url2 = 'http://192.168.71.136:8080';
       var type = 0;
       var kaoheqiu = [];
+      // 辖区概况展示
       $(function() {
-        $.ajax({
-          method: 'POST',
-          url: url2 + '/api/bigscreen/district',
-          contentType: 'text/plain',
-          dataType: 'json',
-        }).done(function(data) {
-          if (data && data.result) {
-            $('.xzjd').html(data.result.xzjd || '--'); // 乡镇街道
-            $('.sqs').html(data.result.sq || '--'); // 社区数
-            $('.wgs').html(data.result.wgs || '--'); // 网格数
-            $('.zfry').html(data.result.zfdy || '--'); // 执法队员
-            $('.sly').html(data.result.sly || '--'); // 受理员
-            $('.zks').html(data.result.jks || '--'); // 监控数
-            $('.zfcl').html(data.result.zfcl || '--'); // 执法车辆
-            $('.zfcl').html(data.result.xgry || '--'); // 协管人员
-          }
-        });
+        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/district', contentType: 'text/plain', dataType: 'json' }).done(
+          function(data) {
+            if (data && data.result) {
+              $('.xzjd').html(data.result.xzjd || '--'); // 乡镇街道
+              $('.sqs').html(data.result.sq || '--'); // 社区数
+              $('.wgs').html(data.result.wgs || '--'); // 网格数
+              $('.zfry').html(data.result.zfdy || '--'); // 执法队员
+              $('.sly').html(data.result.sly || '--'); // 受理员
+              $('.zks').html(data.result.jks || '--'); // 监控数
+              $('.zfcl').html(data.result.zfcl || '--'); // 执法车辆
+              $('.zfcl').html(data.result.xgry || '--'); // 协管人员
+            }
+          },
+        );
       });
 
       $(function() {
-        $.ajax({
-          method: 'POST',
-          url: url + 'api/bigScreen/index',
-          contentType: 'text/plain',
-          dataType: 'json',
-        })
+        $.ajax({ method: 'POST', url: url + 'api/bigScreen/index', contentType: 'text/plain', dataType: 'json' })
           .done(function(data) {
             if (data && data.result) {
               //金华经济技术开发区(地图)
@@ -665,9 +638,8 @@
         var timer1 = null;
         var timer2 = null;
         var timer3 = null;
-        //  timer0 = setInterval("getAjax(0);",5000);
 
-        //点击总计
+        //点击总计-0
         $('#dataTotal').click(function() {
           initJump();
           type = 0;
@@ -675,9 +647,8 @@
           clearInterval(timer2);
           clearInterval(timer3);
           getAjax(0);
-          // timer0 = setInterval("getAjax(0);",5000);
         });
-        //点击本日
+        //点击本日-1
         $('#dataDay').click(function() {
           initJump();
           type = 1;
@@ -685,9 +656,8 @@
           clearInterval(timer0);
           clearInterval(timer2);
           clearInterval(timer3);
-          // timer1 = setInterval("getAjax(1);",5000);
         });
-        //点击本周
+        //点击本周-2
         $('#dataWeek').click(function() {
           type = 2;
           initJump();
@@ -695,9 +665,8 @@
           clearInterval(timer0);
           clearInterval(timer1);
           clearInterval(timer3);
-          // timer2 = setInterval("getAjax(2);",5000);
         });
-        //点击本月
+        //点击本月-3
         $('#dataMonth').click(function() {
           type = 3;
           initJump();
@@ -705,7 +674,6 @@
           clearInterval(timer0);
           clearInterval(timer1);
           clearInterval(timer2);
-          // timer3 = setInterval("getAjax(3);",5000);
         });
       });
 
@@ -729,50 +697,43 @@
       window.t1 = setInterval('getQiuData()', 60000);
 
       //获取运行总量数据
-      function getAjax(type, placecode) {
+      function getAjax(index) {
+        var type = '';
+        if (index === 0) type = '';
+        else if (index === 1) type = 'day';
+        else if (index === 2) type = 'week';
+        else if (index === 3) type = 'month';
         $.ajax({
           method: 'POST',
-          url: url + 'api/bigScreen/index/data',
+          url: url2 + '/api/bigscreen/total',
           dataType: 'json',
-          cache: false,
           data: { type: type, placecode: placecode },
         })
           .done(function(data) {
             //console.log(data);
             if (data && data.result) {
-              bpData = {
-                ZSLS: data.result.zsls,
-                LAS: data.result.las,
-                CZS: data.result.czs,
-                AQCZS: data.result.aqczs,
-                JAS: data.result.jas,
-                LAL: data.result.lal,
-                CZL: data.result.czl,
-                AQCLL: data.result.aqcll,
-                AQJAL: data.result.aqjal,
-              };
+              var countData = data.result.countData;
+              var rateData = data.result.rateData;
               //仪表盘
-              getBiaoPan(bpData.LAL, bpData.CZL, bpData.AQCLL, bpData.AQJAL);
-              console.log(bpData);
-              // bpData.ZSLS, bpData.LAS, bpData.CZS, bpData.AQCZS, bpData.JAS
+              getBiaoPan(rateData.lal, rateData.czl, rateData.asczl, rateData.jal);
               $('#ZSLS').html('');
-              for (const item of bpData.ZSLS.toString()) {
+              for (const item of countData.zsls.toString()) {
                 $('#ZSLS').append(`<span>${item}</span>`);
               }
               $('#LAS').html('');
-              for (const item of bpData.LAS.toString()) {
+              for (const item of countData.las.toString()) {
                 $('#LAS').append(`<span>${item}</span>`);
               }
               $('#CZS').html('');
-              for (const item of bpData.CZS.toString()) {
+              for (const item of countData.czs.toString()) {
                 $('#CZS').append(`<span>${item}</span>`);
               }
               $('#AQCZS').html('');
-              for (const item of bpData.AQCZS.toString()) {
+              for (const item of countData.aqczs.toString()) {
                 $('#AQCZS').append(`<span>${item}</span>`);
               }
               $('#JAS').html('');
-              for (const item of bpData.JAS.toString()) {
+              for (const item of countData.jas.toString()) {
                 $('#JAS').append(`<span>${item}</span>`);
               }
               //运行数据
