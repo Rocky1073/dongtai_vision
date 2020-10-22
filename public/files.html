@@ -32,13 +32,13 @@
                 <div class="icon-title" flex="main:center cross:center">辖区概况</div>
               </div>
             </a>
-            <a href="files.html">
+            <a>
               <div class="nav-icon nav active" flex="dir:top main:justify cross:center">
                 <img src="image/zhcg-a.png" alt="" />
                 <div class="icon-title" flex="main:center cross:center">智慧城管</div>
               </div>
             </a>
-            <a>
+            <a href="zhzf.html">
               <div class="nav-icon nav" flex="dir:top main:justify cross:center">
                 <img src="image/zhzf.png" alt="" />
                 <div class="icon-title" flex="main:center cross:center">综合执法</div>
@@ -62,8 +62,6 @@
                 <div class="icon-title" flex="main:center cross:center">智能分析</div>
               </div>
             </a>
-            <!--中间的icon-->
-
             <!--左右的滚动箭头-->
             <div class="nav-left-zuo">
               <div class="zuo" flex="dir:left"></div>
@@ -572,17 +570,20 @@
         // 案卷处理概况-图表
         getEventDealsurveyTrend();
         // 案卷分布
-        // getEventPublish();
+        getEventPublish(0);
+        // 案卷列表
+        getCaseList();
+
         //获取最近7天数据
         // getSevenDatas();
         //案卷分布type 0全部 1本日 2本周  3本月
-        getFiledistribution(0);
+        // getFiledistribution(0);
         //点击按钮切换本日本周本月
         $('.center-header-nav ul li').click(function() {
-          getFiledistribution($(this).index());
+          getEventPublish($(this).index());
         });
         //获取案卷列表
-        getFileList();
+        // getFileList();
         //开启定时器
         // var timer1 = setInterval("getAjax(0);",5000);
         // var timer2 = setInterval("getAjax(1);",5000);
@@ -663,20 +664,81 @@
           }
         });
       }
-      function getEventPublish() {
-        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/eventPublish', dataType: 'json' }).done(function(data) {
-          if (data && data.result && data.result.length > 0) {
-            var streetnameArr = [];
-            var ksclArr = [];
-            var asclArr = [];
-            var csclArr = [];
-            for (var i = 0; i < data.result.length; i++) {
-              streetnameArr.push(data.result[i].streetname);
-              ksclArr.push(data.result[i].kscls);
-              asclArr.push(data.result[i].ascls);
-              csclArr.push(data.result[i].cscls);
+      function getEventPublish(index) {
+        console.log(index);
+        var type = '';
+        if (index === 1) type = 'day';
+        else if (index === 2) type = 'week';
+        else if (index === 3) type = 'month';
+        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/eventPublish', dataType: 'json', data: { type: type } }).done(
+          function(data) {
+            if (data && data.result && data.result.length > 0) {
+              var streetArr = [];
+              var clsArr = [];
+              var lasArr = [];
+              var sbsArr = [];
+              for (var i = 0; i < data.result.length; i++) {
+                streetArr.push(data.result[i].street);
+                clsArr.push(data.result[i].cls);
+                lasArr.push(data.result[i].las);
+                sbsArr.push(data.result[i].sbs);
+              }
+              showFileDatas(streetArr, clsArr, lasArr, sbsArr);
             }
-            showFileDatas(streetnameArr, ksclArr, asclArr, csclArr);
+          },
+        );
+      }
+      function getCaseList() {
+        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/eventList', dataType: 'json' }).done(function(data) {
+          if (data && data.result && data.result.length > 0) {
+            var target = data.result;
+            for (var i = 0; i < target.length; i++) {
+              var moment = new Date(+target[i].createtime);
+              var date = moment.getMonth() + 1 + '/' + moment.getDate();
+              var hour = moment.getHours();
+              $('.files-right-body ul').append(
+                ' <li>\n' +
+                  '<div class="item-header" flex="main:justify cross:center">\n' +
+                  '<div class="t-h-anjuan" flex="main:left cross:center">\n' +
+                  '<img src="image/anjuanbianhao.png" alt="">\n' +
+                  '<span>案卷' +
+                  target[i].taskcode +
+                  '</span>\n' +
+                  '</div>\n' +
+                  '<div class="t-h-data" flex="main:left cross:center">\n' +
+                  '<span>' +
+                  date +
+                  '</span>\n' +
+                  '<span>' +
+                  hour +
+                  '</span>\n' +
+                  '</div>\n' +
+                  '</div>\n' +
+                  '<div class="item-body" flex="cross:center main:center">\n' +
+                  "<img src='" +
+                  target[i].path +
+                  '\' alt="">\n' +
+                  '<div class="label-n" flex="mainh:top cross:center">' +
+                  target[i].statusname +
+                  '</div>\n' +
+                  '</div>\n' +
+                  '<div class="item-footer">\n' +
+                  '<div class="fenlei">\n' +
+                  '<span>分类：</span><span>[' +
+                  target[i].type2name +
+                  '] ' +
+                  target[i].type3name +
+                  '</span>\n' +
+                  '</div>\n' +
+                  '<div class="miaoshu">\n' +
+                  '<span>描述：</span><span>' +
+                  target[i].eventdesc +
+                  '</span>\n' +
+                  '</div>\n' +
+                  '</div>\n' +
+                  '</li>',
+              );
+            }
           }
         });
       }
@@ -813,12 +875,7 @@
 
       //获取案卷列表
       function getFileList() {
-        $.ajax({
-          method: 'POST',
-          url: url + 'api/bigScreen/ajlb',
-          contentType: 'text/plain',
-          dataType: 'json',
-        })
+        $.ajax({ method: 'POST', url: url + 'api/bigScreen/ajlb', contentType: 'text/plain', dataType: 'json' })
           .done(function(data) {
             if (data && data.result && data.result.length > 0) {
               forInsertFileList(data.result);
