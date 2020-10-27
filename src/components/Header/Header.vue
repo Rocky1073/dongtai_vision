@@ -3,39 +3,51 @@
     <!--中间的icon-->
     <div class="header-left" flex="main:center cross:center">金开区运行驾驶舱</div>
     <div class="header-nav" flex="main:center cross:top">
-      <a href="control.html">
+      <a href="control.html" draggable="false">
         <div class="nav-icon nav" flex="dir:top main:justify cross:center">
           <img src="image/xqgk.png" alt="" />
           <div class="icon-title" flex="main:center cross:center">辖区概况</div>
         </div>
       </a>
-      <a href="files.html">
+      <a href="files.html" draggable="false">
         <div class="nav-icon nav" flex="dir:top main:justify cross:center">
           <img src="image/zhcg.png" alt="" />
           <div class="icon-title" flex="main:center cross:center">智慧城管</div>
         </div>
       </a>
-      <a href="zhzf.html">
+      <a href="zhzf.html" draggable="false">
         <div class="nav-icon nav" flex="dir:top main:justify cross:center">
           <img src="image/zhzf.png" alt="" />
           <div class="icon-title" flex="main:center cross:center">综合执法</div>
         </div>
       </a>
-      <a href="#/city-analytics">
-        <div class="nav-icon nav active" flex="dir:top main:justify cross:center">
-          <img src="image/cstz-a.png" alt="" />
+      <a href="#/city-analytics" draggable="false">
+        <div
+          :class="['nav-icon', 'nav', pageName === 'CityAnalytics' ? 'active' : '']"
+          flex="dir:top main:justify cross:center"
+        >
+          <img src="image/cstz-a.png" alt="" v-if="pageName === 'CityAnalytics'" />
+          <img src="image/cstz.png" alt="" v-else />
           <div class="icon-title" flex="main:center cross:center">城市体征</div>
         </div>
       </a>
-      <a href="#/intelligent-analytics">
-        <div class="nav-icon nav" flex="dir:top main:justify cross:center">
-          <img src="image/dlhx.png" alt="" />
+      <a href="#/street-analysis" draggable="false">
+        <div
+          :class="['nav-icon', 'nav', pageName === 'StreetAnalysis' ? 'active' : '']"
+          flex="dir:top main:justify cross:center"
+        >
+          <img src="image/dlhx-a.png" alt="" v-if="pageName === 'StreetAnalysis'" />
+          <img src="image/dlhx.png" alt="" v-else />
           <div class="icon-title" flex="main:center cross:center">道路画像</div>
         </div>
       </a>
-      <a href="#/street-analysis">
-        <div class="nav-icon nav" flex="dir:top main:justify cross:center">
-          <img src="image/znfx.png" alt="" />
+      <a href="#/intelligent-analytics" draggable="false">
+        <div
+          :class="['nav-icon', 'nav', pageName === 'IntelligentAnalytics' ? 'active' : '']"
+          flex="dir:top main:justify cross:center"
+        >
+          <img src="image/znfx-a.png" alt="" v-if="pageName === 'IntelligentAnalytics'" />
+          <img src="image/znfx.png" alt="" v-else />
           <div class="icon-title" flex="main:center cross:center">智能分析</div>
         </div>
       </a>
@@ -52,7 +64,7 @@
       <!--中间的横线-->
     </div>
     <div class="header-right" flex=" main:center cross:center">
-      <div class="time>" flex="dir:left main:center cross:center">
+      <div class="time" flex="dir:left main:center cross:center">
         <div class="years" flex="dir:left">
           <div class="year">{{ year }}</div>
           <span style="margin: 0 5px;">-</span>
@@ -78,7 +90,7 @@ export default {
   name: 'Header',
   data() {
     return {
-      zhddChildren: ['CityAnalytics', 'IntelligentAnalytics', 'StreetAnalysis'],
+      pageName: '',
       interval: undefined,
       year: '',
       month: '',
@@ -90,6 +102,7 @@ export default {
     };
   },
   mounted() {
+    this.pageName = this.$route.name;
     const weeks = ['周天', '周一', '周二', '周三', '周四', '周五', '周六'];
     this.interval = setInterval(() => {
       const time = new Date();

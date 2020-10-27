@@ -17,15 +17,8 @@ function checkStatus(response) {
  */
 export default function request(url, newOptions, blob) {
   if (newOptions.method === 'POST' || newOptions.method === 'PUT' || newOptions.method === 'DELETE') {
-    if (newOptions.body instanceof FormData) {
-      // newOptions.body is FormData
+    if (!(newOptions.body instanceof FormData)) {
       newOptions.headers = {
-        Accept: 'application/json',
-        ...newOptions.headers,
-      };
-    } else {
-      newOptions.headers = {
-        Accept: 'application/json',
         'Content-Type': 'application/json; charset=utf-8',
         ...newOptions.headers,
       };

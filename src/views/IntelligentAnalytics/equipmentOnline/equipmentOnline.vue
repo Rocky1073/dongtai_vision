@@ -3,16 +3,34 @@
     <div class="map">
       <ol-map @click-Back="clickPrint"></ol-map>
     </div>
-    <ul class="info-list" flex="main:justify">
-      <li class="info-li" v-for="(item, index) in infoList" :key="index">
-        <div class="info-icon">
-          <span class="iconfont" :class="item.icon"></span>
+    <ul data-v-01a27b6d="" flex="main:justify" class="info-list">
+      <li data-v-01a27b6d="" class="info-li">
+        <div data-v-01a27b6d="" class="info-icon"><span data-v-01a27b6d="" class="iconfont icon-lianjie1"></span></div>
+        <div data-v-01a27b6d="" class="info-number">
+          级联监控点<span data-v-01a27b6d="">{{ result.cz_sb }}</span>
         </div>
-        <div class="info-number">
-          {{ item.name }}
-          <span>{{ item.number }}</span>
+        <div data-v-01a27b6d="" class="info-per">在线率: {{ result.cz_sb_zxl }}%</div>
+      </li>
+      <li data-v-01a27b6d="" class="info-li">
+        <div data-v-01a27b6d="" class="info-icon"><span data-v-01a27b6d="" class="iconfont icon-jianshejindu"></span></div>
+        <div data-v-01a27b6d="" class="info-number">
+          自建监控点<span data-v-01a27b6d="">{{ result.jl_jkd }}</span>
         </div>
-        <div class="info-per">在线率: {{ item.per }}</div>
+        <div data-v-01a27b6d="" class="info-per">在线率: {{ result.jl_jkd_zxl }}%</div>
+      </li>
+      <li data-v-01a27b6d="" class="info-li">
+        <div data-v-01a27b6d="" class="info-icon"><span data-v-01a27b6d="" class="iconfont icon-zhifajiluyi"></span></div>
+        <div data-v-01a27b6d="" class="info-number">
+          单兵作战<span data-v-01a27b6d="">{{ result.zj_jkd }}</span>
+        </div>
+        <div data-v-01a27b6d="" class="info-per">在线率: {{ result.zj_jkd_zxl }}%</div>
+      </li>
+      <li data-v-01a27b6d="" class="info-li">
+        <div data-v-01a27b6d="" class="info-icon"><span data-v-01a27b6d="" class="iconfont icon-hangchejiluyi"></span></div>
+        <div data-v-01a27b6d="" class="info-number">
+          执法车辆<span data-v-01a27b6d="">{{ result.zx_jly }}</span>
+        </div>
+        <div data-v-01a27b6d="" class="info-per">在线率: {{ result.zx_jly_zxl }}%</div>
       </li>
     </ul>
   </div>
@@ -20,43 +38,18 @@
 
 <script>
 import olMap from '@/components/map/olMap';
-import { getFourTotalOnline } from '@/services/IntelligentAnalytics.js';
+import { indicatorsMap } from '@/services/IntelligentAnalytics.js';
 
 export default {
   name: 'equipmentOnline',
   components: { olMap },
   data() {
-    return {
-      infoList: [
-        { name: '级联监控点', number: '60', per: '92', icon: 'icon-lianjie1', type: 'unionView' },
-        { name: '自建监控点', number: '35', per: '94', icon: 'icon-jianshejindu', type: 'selfView' },
-        { name: '单兵作战', number: '46', per: '96', icon: 'icon-zhifajiluyi', type: 'executeRecord' },
-        { name: '执法车辆', number: '32', per: '94', icon: 'icon-hangchejiluyi', type: 'carDevice' },
-      ],
-    };
+    return { result: {} };
   },
   mounted() {
-    this.clickPrint('330921100');
-  },
-  methods: {
-    clickPrint(val) {
-      if (val === '330921100') {
-        // this.$store.commit("setOption", "330921001");
-      } else {
-        // this.$store.commit("setOption", val);
-      }
-      console.log('clickPrint', val);
-      getFourTotalOnline({ placecode: val }).then(({ result }) => {
-        this.infoList[0].number = result.unionView.total;
-        this.infoList[0].per = result.unionView.online;
-        this.infoList[1].number = result.selfView.total;
-        this.infoList[1].per = result.selfView.online;
-        this.infoList[2].number = result.executeRecord.total;
-        this.infoList[2].per = result.executeRecord.online;
-        this.infoList[3].number = result.carDevice.total;
-        this.infoList[3].per = result.carDevice.online;
-      });
-    },
+    indicatorsMap().then(({ result }) => {
+      this.result = result;
+    });
   },
 };
 </script>
