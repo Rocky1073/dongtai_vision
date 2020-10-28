@@ -5,14 +5,14 @@
       <ul class="building-list">
         <li class="building-li" v-for="(item, index) in list" :key="index">
           <div class="image">
-            <img :src="item.pic_url" alt />
+            <img :src="item.path" alt />
           </div>
           <div class="info">
-            <p>【违规类型】{{ item.pro_name }}</p>
-            <p>【违规地点】{{ item.camera_name }}</p>
+            <p>【违规类型】{{ item.type }}</p>
+            <p>【违规地点】{{ item.address }}</p>
             <p>
               【违规次数】
-              <span>{{ item.num }}次</span>
+              <span>{{ item.times }}次</span>
             </p>
           </div>
         </li>
@@ -22,16 +22,16 @@
 </template>
 
 <script>
-import { getCameraTopThree } from '@/services/IntelligentAnalytics.js';
+import { videoTop3 } from '@/services/IntelligentAnalytics.js';
 
 export default {
   name: 'illegalBuilding',
   data() {
     return {
       list: [
-        { pic_url: require('./img/3.jpg'), pro_name: '机动车违停', camera_name: '某大厦1楼', num: '130' },
-        { pic_url: require('./img/2.jpg'), pro_name: '垃圾堆放', camera_name: '白鹿鞋城', num: '106' },
-        { pic_url: require('./img/1.jpg'), pro_name: '非机动车违停', camera_name: '底楼', num: '84' },
+        { path: require('./img/3.jpg'), type: '机动车违停', address: '某大厦1楼', times: '130' },
+        { path: require('./img/2.jpg'), type: '垃圾堆放', address: '白鹿鞋城', times: '106' },
+        { path: require('./img/1.jpg'), type: '非机动车违停', address: '底楼', times: '84' },
       ],
     };
   },
@@ -40,8 +40,8 @@ export default {
   },
   methods: {
     getList() {
-      getCameraTopThree().then(({ result }) => {
-        if (result?.length > 0) this.list = result;
+      videoTop3().then(({ code, result }) => {
+        if (code === 0 && result?.length > 0) this.list = result;
       });
     },
   },

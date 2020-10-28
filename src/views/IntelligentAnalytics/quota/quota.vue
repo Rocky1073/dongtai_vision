@@ -11,13 +11,11 @@
 
 <script>
 import CardItem from './item.vue';
-import { getQuotaDataList } from '@/services/IntelligentAnalytics.js';
+import { indicators } from '@/services/IntelligentAnalytics.js';
 
 export default {
   name: 'quota',
-  components: {
-    CardItem,
-  },
+  components: { CardItem },
   data() {
     return { interval: '', sourceList: [] };
   },
@@ -29,13 +27,11 @@ export default {
   mounted() {
     this.cycleTime(this.optionCode);
   },
-
   watch: {
     optionCode: function(val) {
       this.cycleTime(val);
     },
   },
-
   methods: {
     cycleTime(placecode) {
       clearInterval(this.interval);
@@ -43,13 +39,13 @@ export default {
       this.interval = setInterval(() => this.acquire(placecode), SCREEN_CONFIG.setTimer);
     },
     acquire(placecode) {
-      getQuotaDataList({ placecode, _t: new Date().getTime() }).then(({ code, result }) => {
-        if (code === '0') {
+      indicators({ placecode }).then(({ code, result }) => {
+        if (code === 0) {
           this.sourceList = [
-            { title: '当月告警', num: result.warnMonthNum },
-            { title: '当日告警', num: result.warnDayNum },
-            { title: '当月上报', num: result.reportMonthNum },
-            { title: '当日上报', num: result.reportDayNum },
+            { title: '当月告警', num: result.month_warn },
+            { title: '当日告警', num: result.day_warn },
+            { title: '当月上报', num: result.month_sb },
+            { title: '当日上报', num: result.day_sb },
           ];
         }
       });

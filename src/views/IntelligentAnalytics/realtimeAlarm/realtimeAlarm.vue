@@ -7,13 +7,12 @@
           <ul style="width:548px;">
             <li v-for="(item, index) in tableDataList" class="ul-body" :key="index">
               <span>
-                <i>{{ item.streetName }}</i>
+                <i>{{ item.street }}</i>
               </span>
               <span>{{ item.time }}</span>
-              <span>{{ item.address }}</span>
+              <span>{{ item.name }}</span>
               <span>{{ item.type }}</span>
-              <span v-if="item.statusName === '未处理'" style="color:#ff5959">{{ item.statusName }}</span>
-              <span v-else>{{ item.statusName }}</span>
+              <span :style="{ color: item.status === '已上报' ? '' : '#ff5959' }">{{ item.status }}</span>
             </li>
           </ul>
         </happy-scroll>
@@ -23,12 +22,12 @@
 </template>
 
 <script>
-import { getRealTimeAlarmDataList } from '@/services/IntelligentAnalytics.js';
+import { timeWarn } from '@/services/IntelligentAnalytics.js';
 
 export default {
   name: 'realtimeAlarm',
   data() {
-    return { type: 4, interval: '', tableDataList: [] };
+    return { interval: '', tableDataList: [] };
   },
   created() {},
   mounted() {
@@ -51,8 +50,8 @@ export default {
       this.interval = setInterval(() => this.acquire(placecode), SCREEN_CONFIG.setTimer);
     },
     acquire(placecode) {
-      getRealTimeAlarmDataList({ placecode, _t: new Date().getTime() }).then(({ code, result }) => {
-        if (code === '0') this.tableDataList = result;
+      timeWarn().then(({ code, result }) => {
+        if (code === 0) this.tableDataList = result;
       });
     },
   },
@@ -81,13 +80,13 @@ export default {
       width: 570px;
       position: relative;
       li {
-        height: 38px;
-        line-height: 38px;
-        margin-top: 4px;
+        margin-bottom: 10px;
         list-style-type: none;
         background-color: rgba(28, 125, 250, 0.2);
+        display: flex;
+        align-items: center;
         &:first-child {
-          margin-top: 0px;
+          margin-top: 0;
         }
         span {
           display: inline-block;
@@ -100,13 +99,14 @@ export default {
           white-space: nowrap;
           text-overflow: ellipsis;
           &:nth-child(1) {
-            width: 80px;
             background: url('./img/table-one.png') no-repeat;
+            width: 74px;
+            height: 30px;
+            line-height: 30px;
             color: #000000;
             i {
               display: block;
               text-align: left;
-              padding-left: 10px;
             }
           }
           &:nth-child(2) {

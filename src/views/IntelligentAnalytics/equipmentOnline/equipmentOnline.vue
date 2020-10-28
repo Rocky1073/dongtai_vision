@@ -46,10 +46,15 @@ export default {
   data() {
     return { result: {} };
   },
+  methods: {
+    clickPrint(val) {
+      indicatorsMap({ placecode: val }).then(({ code, result }) => {
+        if (code === 0) this.result = result;
+      });
+    },
+  },
   mounted() {
-    indicatorsMap().then(({ result }) => {
-      this.result = result;
-    });
+    this.clickPrint();
   },
 };
 </script>

@@ -14,8 +14,8 @@
       <div class="type-panel">
         <div style="height:100%;width:100%;padding-left:25px;" flex="main:center cross:center">
           <el-radio-group v-model="sjtype" @change="changeSJType">
-            <el-radio label="01">事件</el-radio>
-            <el-radio label="02">部件</el-radio>
+            <el-radio label="1">事件</el-radio>
+            <el-radio label="2">部件</el-radio>
           </el-radio-group>
         </div>
       </div>
@@ -32,7 +32,7 @@
                 <span>
                   <i>{{ index + 1 }}</i>
                 </span>
-                <span>{{ item.type }}</span>
+                <span>{{ item.name }}</span>
                 <span>{{ item.num }}</span>
               </li>
             </ul>
@@ -44,12 +44,12 @@
 </template>
 
 <script>
-import { getAlarmSortDataList } from '@/services/IntelligentAnalytics.js';
+import { warnRank, getAlarmSortDataList } from '@/services/IntelligentAnalytics.js';
 
 export default {
   name: 'alarmSort',
   data() {
-    return { activeName: '总计', sjtype: '01', type: 4, interval: '', tableDataList: [] };
+    return { activeName: '总计', sjtype: '1', type: '', interval: '', tableDataList: [] };
   },
   mounted() {
     this.cycleTime(this.optionCode);
@@ -66,23 +66,13 @@ export default {
   },
   methods: {
     handleClick(tab) {
-      console.log(tab.label);
-      if (tab.label === '本日') {
-        this.type = 1;
-      }
-      if (tab.label === '本周') {
-        this.type = 2;
-      }
-      if (tab.label === '本月') {
-        this.type = 3;
-      }
-      if (tab.label === '总计') {
-        this.type = 4;
-      }
+      if (tab.label === '总计') this.type = '';
+      else if (tab.label === '本日') this.type = 'day';
+      else if (tab.label === '本周') this.type = 'week';
+      else if (tab.label === '本月') this.type = 'month';
       this.cycleTime(this.optionCode);
     },
     changeSJType(val) {
-      console.log('changeSJType', this.sjtype, val);
       this.cycleTime(this.optionCode);
     },
     cycleTime(placecode) {
@@ -91,11 +81,9 @@ export default {
       this.interval = setInterval(() => this.acquire(placecode), SCREEN_CONFIG.setTimer);
     },
     acquire(placecode) {
-      getAlarmSortDataList({ placecode, type: this.type, sjtype: this.sjtype, _t: new Date().getTime() }).then(
-        ({ code, result }) => {
-          if (code === '0') this.tableDataList = result;
-        },
-      );
+      warnRank({ placecode, type: this.type, eventType: this.sjtype }).then(({ code, result }) => {
+        if (code === 0) this.tableDataList = result;
+      });
     },
   },
 };

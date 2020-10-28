@@ -531,6 +531,7 @@ export default {
     },
   },
   mounted() {
+    document.title = '城市运行体征专题';
     this.line = echarts.init(document.getElementById('line'));
     this.stackBar = echarts.init(document.getElementById('stack-bar'));
     this.radar = echarts.init(document.getElementById('radar'));

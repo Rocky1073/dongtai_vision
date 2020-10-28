@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { getDeviceState } from '@/services/IntelligentAnalytics.js';
+import { equipment, getDeviceState } from '@/services/IntelligentAnalytics.js';
 
 export default {
   name: 'equipmentList',
@@ -41,26 +41,20 @@ export default {
       ],
     };
   },
-  mounted() {
-    this.getNumber();
-  },
   methods: {
     getNumber() {
-      getDeviceState().then(response => {
-        let data = response?.data?.result?.list;
-        if (!data) return;
-        let vmData = this.equipments;
-        for (let i = 0; i < data.length; i++) {
-          for (let j = 0; j < vmData.length; j++) {
-            if (data[i].deviceType == vmData[j].deviceType) {
-              vmData[j].total = data[i].deviceCount;
-              vmData[j].normal = data[i].normalCount;
-            }
-          }
-        }
-        this.equipments = vmData;
+      equipment().then(({ code, result }) => {
+        if (code !== 0) return;
+        this.equipments = this.equipments.map(item => {
+          const obj = result.filter(tar => tar.name === item.name);
+          if (obj.length) return { ...item, total: obj[0].allnum, normal: obj[0].realnum };
+          return { ...item };
+        });
       });
     },
+  },
+  mounted() {
+    this.getNumber();
   },
 };
 </script>

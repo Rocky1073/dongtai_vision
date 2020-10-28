@@ -1,7 +1,7 @@
 <template>
   <div class="header" flex="dir:left">
     <!--中间的icon-->
-    <div class="header-left" flex="main:center cross:center">金开区运行驾驶舱</div>
+    <div class="header-left" flex="main:center cross:center">城市管理运行指挥中心</div>
     <div class="header-nav" flex="main:center cross:top">
       <a href="control.html" draggable="false">
         <div class="nav-icon nav" flex="dir:top main:justify cross:center">

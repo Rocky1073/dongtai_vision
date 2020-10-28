@@ -8,17 +8,17 @@
         </roll-animation>
       </div>
       <div class="total-panel">
-        <div class="num">{{ sourceList[0] }}</div>
+        <div class="num">{{ result.all_equipment }}</div>
         <div class="text">设备总数</div>
       </div>
       <div style="margin-left: 70px;width:100%;padding-right:20px;" flex="dir:left cross:center main:justify">
         <div class="alarm-panel" flex="dir:left cross:center">
           <div class="text">告警设备</div>
-          <div class="num">{{ sourceList[1] }}</div>
+          <div class="num">{{ result.warn_equipment }}</div>
         </div>
         <div class="outline-panel" flex="dir:left cross:center">
           <div class="text">离线设备</div>
-          <div class="num">{{ sourceList[2] }}</div>
+          <div class="num">{{ result.offline_equipment }}</div>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@
 
 <script>
 import RollAnimation from '../filesDispose/rollNum/rollAnimation/rollAnimation';
-import { getDeviceState } from '@/services/IntelligentAnalytics.js';
+import { indicatorsMiddle, getDeviceState } from '@/services/IntelligentAnalytics.js';
 
 export default {
   name: 'equipmentNum',
@@ -35,7 +35,7 @@ export default {
     RollAnimation,
   },
   data() {
-    return { imgsrc: require('./img/tuceng.png'), interval: '', sourceList: [] };
+    return { imgsrc: require('./img/tuceng.png'), interval: '', result: {} };
   },
   mounted() {
     this.cycleTime(this.optionCode);
@@ -57,11 +57,8 @@ export default {
       this.interval = setInterval(() => this.acquire(placecode), SCREEN_CONFIG.setTimer);
     },
     acquire(placecode) {
-      getDeviceState({ placecode, _t: new Date().getTime() }).then(({ code, result }) => {
-        if (code === '0') {
-          const { count } = result;
-          this.sourceList = [count.sumCount, count.alarmSumCount, count.offlineSumCount];
-        }
+      indicatorsMiddle({ placecode }).then(({ code, result }) => {
+        if (code === 0) this.result = result;
       });
     },
   },
