@@ -470,7 +470,7 @@ export default {
       }).then(({ code, result }) => {
         if (code !== 0) return;
         this.areaList = result;
-        if (!result.length) return;
+        if (!result?.length) return;
         const color = [
           '55, 162, 218',
           '255, 219, 92',

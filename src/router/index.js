@@ -4,7 +4,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 const routes = [
-  // { path: "/", name: "Home", component: Home },
+  { path: '/', redirect: '/city-analytics' },
   {
     path: '/city-analytics',
     name: 'CityAnalytics',
