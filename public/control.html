@@ -566,46 +566,25 @@
 
       getAjax(0);
 
-      var timer0 = null;
-      var timer1 = null;
-      var timer2 = null;
-      var timer3 = null;
-
       //点击总计-0
       $('#dataTotal').click(function() {
-        initJump();
         type = 0;
-        clearInterval(timer1);
-        clearInterval(timer2);
-        clearInterval(timer3);
         getAjax(0);
       });
       //点击本日-1
       $('#dataDay').click(function() {
-        initJump();
         type = 1;
         getAjax(1);
-        clearInterval(timer0);
-        clearInterval(timer2);
-        clearInterval(timer3);
       });
       //点击本周-2
       $('#dataWeek').click(function() {
         type = 2;
-        initJump();
         getAjax(2);
-        clearInterval(timer0);
-        clearInterval(timer1);
-        clearInterval(timer3);
       });
       //点击本月-3
       $('#dataMonth').click(function() {
         type = 3;
-        initJump();
         getAjax(3);
-        clearInterval(timer0);
-        clearInterval(timer1);
-        clearInterval(timer2);
       });
 
       //获取运行总量数据
@@ -653,6 +632,66 @@
           .fail(function() {
             console.log('请求api/bigScreen/index/data接口失败！');
           });
+      }
+
+      function getQiuChartByCode(code) {
+        for (var i = 0; i < kaoheqiu.length; i++) {
+          if (kaoheqiu[i].placecode == code) {
+            getQiuChart(kaoheqiu[i].score);
+            break;
+          }
+        }
+        if (i == kaoheqiu.length) {
+          getQiuChart(0.1);
+        }
+      }
+
+      function getQiuChart(fillData) {
+        var showData = ((20 + (fillData - 80) * 4) / 100).toFixed(4);
+        var mycharts = echarts.init(document.getElementById('liquidFill-chart'));
+        var liquidFillChartOption = {
+          series: [
+            {
+              type: 'liquidFill',
+              radius: '80%',
+              outline: {
+                show: false,
+              },
+              backgroundStyle: {
+                borderWidth: 0,
+                color: 'rgba(3,238,251,0.5)',
+              },
+              amplitude: 3,
+              waveLength: '20%',
+              data: [
+                {
+                  value: showData,
+                  direction: 'left',
+                  itemStyle: {
+                    color: 'rgba(3,238,251,0.9)',
+                  },
+                },
+                {
+                  value: showData,
+                  itemStyle: {
+                    color: 'rgba(1,172,236,0.8)',
+                  },
+                },
+              ],
+              label: {
+                position: ['50%', '75%'],
+                fontSize: 22,
+                color: '#0c1566',
+                insideColor: '#0c1566',
+                fontWeight: 'normal',
+                formatter: function(param) {
+                  return (25 * param.value + 75).toFixed(2);
+                },
+              },
+            },
+          ],
+        };
+        mycharts.setOption(liquidFillChartOption);
       }
     </script>
   </body>
