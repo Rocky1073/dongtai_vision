@@ -533,6 +533,7 @@
     <script type="text/javascript" src="js/echarts-wordcloud.min.js"></script>
     <script type="text/javascript" src="js/charts-filed.js"></script>
     <script type="text/javascript" src="js/countUp.js"></script>
+    <script src="./configuration.js"></script>
     <script>
       //数字跳动
       var options = {
@@ -551,49 +552,31 @@
       var todayJAS = null;
       $(function() {
         initJump();
-        //累计数量
-        // getAjax(0);
-        //今日新增
-        // getAjax(1);
         //案卷统计
         getSourceType();
         //高发问题TOP5
         getTop5();
-        // getFileCount(7);
         //案卷热词分析
         getWordCould();
         // 案卷处理概况
         getEventDealsurvey();
-        // getFileCount(8);
         // 案卷处理概况-图表
         getEventDealsurveyTrend();
         // 案卷分布
         getEventPublish(0);
         // 案卷列表
         getCaseList();
-
-        //获取最近7天数据
-        // getSevenDatas();
-        //案卷分布type 0全部 1本日 2本周  3本月
-        // getFiledistribution(0);
         //点击按钮切换本日本周本月
         $('.center-header-nav ul li').click(function() {
           getEventPublish($(this).index());
         });
-        //获取案卷列表
-        // getFileList();
-        //开启定时器
-        // var timer1 = setInterval("getAjax(0);",5000);
-        // var timer2 = setInterval("getAjax(1);",5000);
       });
 
       /*测试库*/
 
       var url = 'http://192.168.71.33:81/';
-      //    var url = "http://60.191.224.129:83/"; <!-- 正式 -->
-      var url2 = 'http://192.168.71.136:8080';
       function getSourceType() {
-        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/lyfs', dataType: 'json' }).done(function(data) {
+        $.ajax({ method: 'POST', url: Link + '/api/bigscreen/lyfs', dataType: 'json' }).done(function(data) {
           if (data && data.result && data.result.length > 0) {
             var arr = [];
             for (var i = 0; i < data.result.length; i++) {
@@ -604,7 +587,7 @@
         });
       }
       function getTop5() {
-        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/top5', dataType: 'json' }).done(function(data) {
+        $.ajax({ method: 'POST', url: Link + '/api/bigscreen/top5', dataType: 'json' }).done(function(data) {
           if (data && data.result && data.result.length > 0) {
             var xData = [];
             var yData = [];
@@ -617,7 +600,7 @@
         });
       }
       function getWordCould() {
-        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/hotWords', dataType: 'json' }).done(function(data) {
+        $.ajax({ method: 'POST', url: Link + '/api/bigscreen/hotWords', dataType: 'json' }).done(function(data) {
           if (data && data.result && data.result.length > 0) {
             var arr = [];
             for (var i = 0; i < data.result.length; i++) {
@@ -628,7 +611,7 @@
         });
       }
       function getEventDealsurvey() {
-        $.ajax({ method: 'POST', url: url + '/api/bigscreen/eventDealsurvey', dataType: 'json' }).done(function(data) {
+        $.ajax({ method: 'POST', url: Link + '/api/bigscreen/eventDealsurvey', dataType: 'json' }).done(function(data) {
           if (data && data.result) {
             $('.ZSLS').html(data.result.sbs); // 累计上报数
             $('.LAS').html(data.result.las); // 累计立案数
@@ -644,7 +627,7 @@
         });
       }
       function getEventDealsurveyTrend() {
-        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/eventDealsurveyTrend', dataType: 'json' }).done(function(data) {
+        $.ajax({ method: 'POST', url: Link + '/api/bigscreen/eventDealsurveyTrend', dataType: 'json' }).done(function(data) {
           if (data && data.result && data.result.length > 0) {
             var sbsArr = [];
             var lasArr = [];
@@ -668,7 +651,7 @@
         else if (index === 1) type = 'day';
         else if (index === 2) type = 'week';
         else if (index === 3) type = 'month';
-        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/eventPublish', dataType: 'json', data: { type: type } }).done(
+        $.ajax({ method: 'POST', url: Link + '/api/bigscreen/eventPublish', dataType: 'json', data: { type: type } }).done(
           function(data) {
             if (data && data.result && data.result.length > 0) {
               var streetArr = [];
@@ -687,7 +670,7 @@
         );
       }
       function getCaseList() {
-        $.ajax({ method: 'POST', url: url2 + '/api/bigscreen/eventList', dataType: 'json' }).done(function(data) {
+        $.ajax({ method: 'POST', url: Link + '/api/bigscreen/eventList', dataType: 'json' }).done(function(data) {
           if (data && data.result && data.result.length > 0) {
             var target = data.result;
             for (var i = 0; i < target.length; i++) {
@@ -741,199 +724,6 @@
         });
       }
 
-      //获取运行总量数据
-      function getAjax(type) {
-        $.ajax({ method: 'POST', url: url + 'api/bigScreen/index/data', dataType: 'json', data: { type: type } })
-          .done(function(data) {
-            if (data && data.result) {
-              if (type == 0) {
-                $('.ZSLS').html(data.result.zsls);
-                $('.LAS').html(data.result.las);
-                $('.CZS').html(data.result.czs);
-                $('.JAS').html(data.result.jas);
-              } else if (type == 1) {
-                $('.today-ZSLS').html(data.result.zsls);
-                $('.today-LAS').html(data.result.las);
-                $('.today-CZS').html(data.result.czs);
-                $('.today-JAS').html(data.result.jas);
-              }
-              //运行数据
-              szBeat(data.result.zsls, data.result.las, data.result.czs, data.result.jas, type);
-            }
-          })
-          .fail(function() {
-            console.log('请求api/bigScreen/index/data接口失败！');
-          });
-      }
-
-      //获取案卷统计
-      function getFileCount(type) {
-        $.ajax({
-          method: 'POST',
-          url: url + 'api/bigScreen/ajtj',
-          dataType: 'json',
-          data: { type: type },
-        })
-          .done(function(data) {
-            if (data && data.result && data.result.length > 0) {
-              if (type == 7) {
-                // var xData = ["污水井盖", "上水井盖", "户外广告", "渣土乱倒", "热力管道"];
-                // var yData = [110, 100, 80, 70, 50];
-                var xData = [];
-                var yData = [];
-                getNameAndCount(data.result, xData, yData);
-              } else if (type == 8) {
-                var JosnList = [];
-                getJson(data.result, JosnList, type);
-              }
-            }
-          })
-          .fail(function() {
-            console.log('请求api/bigScreen/ajtj接口失败！');
-          });
-      }
-
-      //获取7天数据
-      function getSevenDatas() {
-        $.ajax({ method: 'POST', url: url + 'api/bigScreen/last7Days', contentType: 'text/plain', dataType: 'json' })
-          .done(function(data) {
-            if (data && data.result && data.result.length > 0) {
-              var absArr = [];
-              var lasArr = [];
-              var czsArr = [];
-              var dateArr = [];
-              getSevenDatasArr(data.result, absArr, lasArr, czsArr, dateArr);
-            }
-          })
-          .fail(function() {
-            console.log('请求api/bigScreen/last7Days接口失败！');
-          });
-      }
-
-      //案卷分布ajax获取数据
-      function getFiledistribution(type) {
-        $.ajax({ method: 'POST', url: url + 'api/bigScreen/ajfb', dataType: 'json', data: { type: type } })
-          .done(function(data) {
-            if (data && data.result && data.result.length > 0) {
-              var streetnameArr = [];
-              var ksclArr = [];
-              var asclArr = [];
-              var csclArr = [];
-              getFileSistributionDatas(data.result, streetnameArr, ksclArr, asclArr, csclArr);
-            }
-          })
-          .fail(function() {
-            console.log('请求api/bigScreen/index/data接口失败！');
-          });
-      }
-
-      //获取7天数据echart使用
-      function getSevenDatasArr(target, sbsArr, lasArr, czsArr, dateArr) {
-        for (var i = 0; i < target.length; i++) {
-          if (target[i].name == 'sbs') {
-            sbsArr.push(target[i].count);
-            dateArr.push(target[i].mark);
-          } else if (target[i].name == 'las') {
-            lasArr.push(target[i].count);
-          } else if (target[i].name == 'czs') {
-            czsArr.push(target[i].count);
-          }
-        }
-        showSevenDatas(sbsArr.reverse(), lasArr.reverse(), czsArr.reverse(), dateArr.reverse());
-      }
-
-      //转json
-      function getJson(target, arr, type) {
-        for (var i = 0; i < target.length; i++) {
-          var obj = { name: target[i].name, value: target[i].count };
-          arr.push(obj);
-        }
-        if (type == 8) getHotWords(arr);
-      }
-
-      //获取名字及数量
-      function getNameAndCount(target, arrName, arrCount) {
-        for (var i = 0; i < target.length; i++) {
-          arrName.push(target[i].name);
-          arrCount.push(target[i].count);
-        }
-        getTopEvents(arrName, arrCount);
-      }
-
-      //获取案卷分布的数据
-      function getFileSistributionDatas(target, streetnameArr, ksclArr, asclArr, csclArr) {
-        for (var i = 0; i < target.length; i++) {
-          streetnameArr.push(target[i].streetname);
-          ksclArr.push(target[i].kscls);
-          asclArr.push(target[i].ascls);
-          csclArr.push(target[i].cscls);
-        }
-        showFileDatas(streetnameArr, ksclArr, asclArr, csclArr);
-      }
-
-      //获取案卷列表
-      function getFileList() {
-        $.ajax({ method: 'POST', url: url + 'api/bigScreen/ajlb', contentType: 'text/plain', dataType: 'json' })
-          .done(function(data) {
-            if (data && data.result && data.result.length > 0) {
-              forInsertFileList(data.result);
-            }
-          })
-          .fail(function() {
-            console.log('请求api/bigScreen/ajlb接口失败！');
-          });
-      }
-
-      //循环渲染案卷列表方法
-      function forInsertFileList(target) {
-        for (var i = 0; i < target.length; i++) {
-          $('.files-right-body ul').append(
-            ' <li>\n' +
-              '<div class="item-header" flex="main:justify cross:center">\n' +
-              '<div class="t-h-anjuan" flex="main:left cross:center">\n' +
-              '<img src="image/anjuanbianhao.png" alt="">\n' +
-              '<span>案卷' +
-              target[i].taskcode +
-              '</span>\n' +
-              '</div>\n' +
-              '<div class="t-h-data" flex="main:left cross:center">\n' +
-              '<span>' +
-              target[i].day +
-              '</span>\n' +
-              '<span>' +
-              target[i].hour +
-              '</span>\n' +
-              '</div>\n' +
-              '</div>\n' +
-              '<div class="item-body" flex="cross:center main:center">\n' +
-              "<img src='" +
-              target[i].filepath +
-              '\' alt="">\n' +
-              "<div class='" +
-              (target[i].status == 0 ? 'label-n' : 'label-y') +
-              '\' flex="mainh:top cross:center">' +
-              (target[i].status == 0 ? '未完成' : '已完成') +
-              '</div>\n' +
-              '</div>\n' +
-              '<div class="item-footer">\n' +
-              '<div class="fenlei">\n' +
-              '<span>分类：</span><span>[' +
-              target[i].type2id +
-              '] ' +
-              target[i].type3id +
-              '</span>\n' +
-              '</div>\n' +
-              '<div class="miaoshu">\n' +
-              '<span>描述：</span><span>' +
-              target[i].eventdesc +
-              '</span>\n' +
-              '</div>\n' +
-              '</div>\n' +
-              '</li>',
-          );
-        }
-      }
-
       //跳动数字初始化
       function initJump() {
         ZSLS = new CountUp('ZSLS', 0, 0, 0, 0.1, options);
@@ -944,29 +734,6 @@
         todayLAS = new CountUp('today-LAS', 0, 0, 0, 0.1, options);
         todayCZS = new CountUp('today-CZS', 0, 0, 0, 0.1, options);
         todayJAS = new CountUp('today-JAS', 0, 0, 0, 0.1, options);
-      }
-
-      function szBeat(ZSLSV, LASV, CZSV, JASV, type) {
-        if (type == 0) {
-          ZSLS.update(ZSLSV);
-          LAS.update(LASV);
-          CZS.update(CZSV);
-          JAS.update(JASV);
-          /*开始跳动*/
-          ZSLS.start();
-          LAS.start();
-          CZS.start();
-          JAS.start();
-        } else if (type == 1) {
-          todayZSLS.update(ZSLSV);
-          todayLAS.update(LASV);
-          todayCZS.update(CZSV);
-          todayJAS.update(JASV);
-          todayZSLS.start();
-          todayLAS.start();
-          todayCZS.start();
-          todayJAS.start();
-        }
       }
     </script>
   </body>

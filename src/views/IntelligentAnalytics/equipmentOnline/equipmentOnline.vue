@@ -5,28 +5,28 @@
     </div>
     <ul data-v-01a27b6d="" flex="main:justify" class="info-list">
       <li data-v-01a27b6d="" class="info-li">
-        <div data-v-01a27b6d="" class="info-icon"><span data-v-01a27b6d="" class="iconfont icon-lianjie1"></span></div>
+        <img src="@/assets/images/jljkd.png" alt="" draggable="false" />
         <div data-v-01a27b6d="" class="info-number">
           级联监控点<span data-v-01a27b6d="">{{ result.cz_sb }}</span>
         </div>
         <div data-v-01a27b6d="" class="info-per">在线率: {{ result.cz_sb_zxl }}%</div>
       </li>
       <li data-v-01a27b6d="" class="info-li">
-        <div data-v-01a27b6d="" class="info-icon"><span data-v-01a27b6d="" class="iconfont icon-jianshejindu"></span></div>
+        <img src="@/assets/images/zjjkd.png" alt="" draggable="false" />
         <div data-v-01a27b6d="" class="info-number">
           自建监控点<span data-v-01a27b6d="">{{ result.jl_jkd }}</span>
         </div>
         <div data-v-01a27b6d="" class="info-per">在线率: {{ result.jl_jkd_zxl }}%</div>
       </li>
       <li data-v-01a27b6d="" class="info-li">
-        <div data-v-01a27b6d="" class="info-icon"><span data-v-01a27b6d="" class="iconfont icon-zhifajiluyi"></span></div>
+        <img src="@/assets/images/dbzz.png" alt="" draggable="false" />
         <div data-v-01a27b6d="" class="info-number">
           单兵作战<span data-v-01a27b6d="">{{ result.zj_jkd }}</span>
         </div>
         <div data-v-01a27b6d="" class="info-per">在线率: {{ result.zj_jkd_zxl }}%</div>
       </li>
       <li data-v-01a27b6d="" class="info-li">
-        <div data-v-01a27b6d="" class="info-icon"><span data-v-01a27b6d="" class="iconfont icon-hangchejiluyi"></span></div>
+        <img src="@/assets/images/zfcl.png" alt="" draggable="false" />
         <div data-v-01a27b6d="" class="info-number">
           执法车辆<span data-v-01a27b6d="">{{ result.zx_jly }}</span>
         </div>
@@ -83,20 +83,6 @@ export default {
 }
 .info-li {
   font-size: 16px;
-}
-.info-icon {
-  width: 70px;
-  height: 70px;
-  background: url('./img/icon_back.png');
-  color: #000;
-  font-size: 30px;
-  padding-left: 26px;
-  line-height: 70px;
-  margin-bottom: 2px;
-  .iconfont {
-    color: #000;
-    font-size: 30px;
-  }
 }
 .info-number {
   margin-bottom: 0px;
